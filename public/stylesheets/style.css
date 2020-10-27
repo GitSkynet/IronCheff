@@ -1,5 +1,9 @@
 /* NAVBAR STYLE */
-  
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body {
     margin: 0px;
     font-family: 'segoe ui';
@@ -97,7 +101,7 @@ body {
 
 .homesection1{
     width: auto;
-    height: 500px;
+    height: 700px;
     background-image: url('https://imagenes.20minutos.es/files/article_amp/uploads/2020/03/12/coliflor-al-horno.jpeg');
     background-position: center;
     background-size: cover;
