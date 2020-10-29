@@ -12,7 +12,7 @@ body {
 .nav {
     height: 50px;
     width: 100%;
-    background-color: #4d4d4d;
+    background-color: #495464;
     position: relative;
   }
   
@@ -24,7 +24,7 @@ body {
     display: inline-block;
     font-size: 22px;
     color: #fff;
-    padding: 10px 10px 10px 10px;
+    padding: 2px;
   }
   
   .nav > .nav-btn {
@@ -109,6 +109,12 @@ body {
       overflow-y: auto;
     }
   }
+
+  .nav-logo img {
+    width: 50px;
+    height: 50px;
+    margin-top: 0;
+  }
 /* FIN STYLE NAVBAR */
 
 .homesection1{
@@ -118,4 +124,50 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+
+/* Login */
+
+.section-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.form-login form{
+  border: 1px solid grey;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.form-login form h2 {
+  margin: 20px;
+  font-size: xx-large;
+
+}
+
+.form-login form label {
+  margin: 10px;
+}
+
+.form-login form input {
+  border: none;
+  border-bottom: 2px solid aquamarine;
+  
+  margin: 10px;
+}
+
+.form-login form button {
+  background-color: aquamarine;
+  border: 1px solid aquamarine;
+  padding: 5px 10px;
+  margin: 10px;
 }
