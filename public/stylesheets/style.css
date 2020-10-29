@@ -43,6 +43,8 @@ body {
     text-decoration: none;
     color: #efefef;
   }
+
+  
   
   .nav > .nav-links > a:hover {
     background-color: rgba(0, 0, 0, 0.3);
@@ -53,6 +55,11 @@ body {
   }
   
   @media (max-width:600px) {
+
+    .nav-logo{
+      display: block;
+      width: 100%;
+    }
     .nav > .nav-btn {
       display: inline-block;
       position: absolute;
@@ -78,7 +85,7 @@ body {
       position: absolute;
       display: block;
       width: 100%;
-      background-color: #333;
+      background-color: rgb(246, 15, 15);
       height: 0px;
       transition: all 0.3s ease-in;
       overflow-y: hidden;
@@ -86,6 +93,11 @@ body {
       left: 0px;
     }
     .nav > .nav-links > a {
+      display: block;
+      width: 100%;
+    }
+
+    .nav > .nav-links > img {
       display: block;
       width: 100%;
     }
