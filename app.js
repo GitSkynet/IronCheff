@@ -50,6 +50,16 @@ app.use(session({
     saveUninitialized: false
   }));
 
+  app.use((req, res, next) => {
+    if (req.session.currentUser) {
+      res.locals.currentUserInfo = req.session.currentUser;
+      res.locals.isUserLoggedIn = true;
+    } else {
+      res.locals.isUserLoggedIn = false;
+    }
+    next();
+  })
+
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';

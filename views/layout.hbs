@@ -24,10 +24,10 @@
   </div>
   
   <div class="nav-links">
-    <a href="#" target="_blank">Another Link</a>
-    <a href="#" target="_blank">Hall of fame</a>
-    <a href="#" target="_blank">Recipes</a>
-    {{#unless user}}
+    <a href="">Another Link</a>
+    <a href="">Hall of fame</a>
+    <a href="recipes">Recipes</a>
+    {{#unless currentUserInfo}}
     <a href="/login">Log In</a>
     <a href="/signup">Sign Up</a>
     {{/unless}}
@@ -36,6 +36,6 @@
 
   {{{body}}}
 
-  <script src="javascripts/navbar.js"></script>
+  {{!-- <script src="javascripts/navbar.js"></script> --}}
 </body>
 </html>

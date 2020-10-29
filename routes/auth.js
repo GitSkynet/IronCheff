@@ -60,6 +60,7 @@ router.post("/login", async (req, res, next) => {
     }
     if (bcrypt.compareSync(password, user.password)){
       req.session.currentUser = user;
+      console.log('CONSOLE LOOOOOOGGGGGGGG', user)
       res.redirect("/");
     } else {
       res.render("auth/login", {

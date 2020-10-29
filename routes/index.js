@@ -1,9 +1,21 @@
 var express = require("express");
 var router = express.Router();
+const Recipe = require('../models/Recipe');
+
+
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("home");
+});
+
+router.get("/recipes", (req, res, next) => {
+  try {
+    let receta = Recipe.find()
+    res.render("recipes", receta);
+  } catch (error) {
+    
+  }
 });
 
 router.use((req, res, next) => {
