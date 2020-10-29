@@ -15,4 +15,8 @@ router.use((req, res, next) => {
   }
 });
 
+router.get("/recipeupdate", function (req, res, next) {
+
+});
+
 module.exports = router;
