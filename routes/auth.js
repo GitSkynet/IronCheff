@@ -8,16 +8,16 @@ router.get("/signup", function (req, res, next){
 });
 
 router.post("/signup", async (req, res, next) =>{
-  if(req.body.email === "" || req.body.password === ""){
+  if(req.body.name === '' || req.body.email === "" || req.body.password === ""){
     res.render("auth/signup", {
       errormessage: "Enter username &/or password to sign up",
     });
     return;
   }
   //Llamamos a email y password  a través de req.body (DESECTRUCTURAMOS)
-  const {email, password} = req.body;
+  const {name, email, password} = req.body;
   //Creamos el Salt y le hacemos el Hash al password
-  const salt = bvrypt.genSaltSync(10);
+  const salt = bcrypt.genSaltSync(10);
   const hashPass = bcrypt.hashSync(password, salt);
   try {
     const user = await User.findOne({email: email});
@@ -28,6 +28,7 @@ router.post("/signup", async (req, res, next) =>{
       return;
     }
     await User.create({
+      name,
       email,
       password: hashPass,
     });
