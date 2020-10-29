@@ -16,6 +16,20 @@ router.use((req, res, next) => {
 });
 
 router.get("/recipeupdate", function (req, res, next) {
+  // primero cojo input desde el req.body (el puntaje que da el user) => userValue
+  // busco por ID (Recipe.findById) y lo meto en variable (p.e. recipe)
+  // recipeScore = recipe.score
+  // recipeQuantity = recipe.IdScore
+
+  // recipeScore = recipeScore + userValue
+  // recipeQuantity++
+
+  // let AVG = recipeScore / recipeQuantity
+
+  // Recipe.findByIdAndUpdate(userId, { score: recipeScore, IdScore: recipeQuantity }, {new: true})
+  
+  // TODO ESTO ES ASINCRONO !!!! :(
+
 
 });
 
