@@ -3,7 +3,7 @@ const Recipe = require('../models/Recipe');
 
 mongoose.connect('mongodb://localhost/Proyecto2', { useNewUrlParser: true, useUnifiedTopology: true });
 
-const ingredients = [
+const recetas = [
          
 ];
 

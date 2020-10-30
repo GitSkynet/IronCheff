@@ -22,12 +22,17 @@
     </form>
 </div>
 
-<div>
     <form action="/ingredients" method="POST">
         <label for="name">Ingredientes</label>
         <input type="name" name="ingredients" placeholder="Selecciona ingredientes">
         <button type="submit">Busca ingredientes</button>
     </form>
-</div>
+
+    {{!-- <div>
+    <h3>Ingredientes añadidos a la receta</h3>
+        <img src="{{this.image}}" alt="">
+        <h4>{{this.name}}</h4>
+        <h5>{{this.category}}</h5>
+</div> --}}
 
 <button><a href="/dashboard">Regresa a tu Dashboard</a></button>

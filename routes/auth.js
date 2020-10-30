@@ -2,7 +2,8 @@ var express = require("express");
 var router = express.Router();
 const User = require('../models/User');
 const bcrypt = require("bcryptjs");
-const Recipe = require("../models/Ingredient");
+const Ingredient = require("../models/Ingredient");
+const Recipe = require("../models/Recipe");
 
 router.get("/signup", function (req, res, next){
   res.render("auth/signup");
@@ -81,34 +82,42 @@ router.post("/dashboard", async (req, res, next) => {
   res.render("auth/dashboard", receta);
 });
 
+router.get('/ingredients', (req, res, next) => {
+  res.render('auth/createrecipes');
+})
 
+router.post('/ingredients', async (req, res, next)=>{
+  try {
+    const ingredients = req.body.ingredients;
+    console.log('INGREDIENTEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSS', ingredients)
+    let oneIngredient = await Ingredient.find({name: ingredients});
+    console.log('INGREDIENTES AÑADIDOOOOOOOSSSSS', oneIngredient)
+    let ingredientsArray =[];
+    // oneIngredient.map(el=>{
+    //   ingredientsArray.push(el._id)
+    // })
+    ingredientsArray.push(oneIngredient);
+    console.log('----------------------ingredientsArray------------------------------------', ingredientsArray)
+    res.locals.ingredients = ingredientsArray;
+  } catch (error) {
+    console.log(error)
+  }
+});
 
 router.get('/createrecipe', (req, res, next) => {
-  console.log('ESTO ES RES.LOCALS', res.locals)
   res.render('auth/createrecipes');
 })
 
 router.post('/createrecipe', async (req, res, next) => {
-  const { name, ingredients, instructions, cuisine, image, diners } =  req.body;
-  let creator = (res.locals.currentUserInfo._id);
+  const { name, instructions, cuisine, image, diners } =  req.body;
+  console.log('--------------CONSOLE LOG LOCAAAAAALLLLSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS-------------', res.locals.ingredients)
+  let creator = res.locals.currentUserInfo._id;
+  let ingredients = res.locals.ingredients;
   try {
-    let oneIngredient = await Ingredient.find({name: ingredients});
-    ingredients =[];
-    ingredients.push(oneIngredient._id);
     Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator});
+    // res.render('auth/createrecipes')
   } catch (error) {
     console.log('Error creando la receta, prueba en unos instantes', error)
-  }
-});
-
-router.post('/ingredients', async (req, res, next)=>{
-  const { image, name, category } =  req.body;
-  try {
-    let oneIngredient = await Ingredient.find({name: ingredients});
-    ingredients =[];
-    ingredients.push(oneIngredient._id);
-  } catch (error) {
-    console.log('Error obteniendo ingredientes, prueba en unos minutos', error)
   }
 });
 

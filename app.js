@@ -41,7 +41,7 @@ require('./configs/db.config');
 
 app.use(session({
     secret: "basic-auth-secret",
-    cookie: { maxAge: 60000 },
+    cookie: { maxAge: 600000 },
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
       ttl: 24 * 60 * 60 // 1 day
@@ -52,6 +52,7 @@ app.use(session({
 
   app.use((req, res, next) => {
     if (req.session.currentUser) {
+      res.locals.ingredients = [];
       res.locals.currentUserInfo = req.session.currentUser;
       res.locals.isUserLoggedIn = true;
     } else {
