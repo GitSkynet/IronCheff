@@ -14,8 +14,21 @@ router.get("/recipes", (req, res, next) => {
     let receta = Recipe.find()
     res.render("recipes", receta);
   } catch (error) {
-    
+    console.log(error)
   }
+});
+
+router.get("/recipes/:id", (req, res, next)=> {
+  try {
+    let receta = Recipe.findById()
+    res.render("showrecipes", receta);
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+router.get("/halloffame", (req, res, next) => {
+    res.render("halloffame");
 });
 
 router.use((req, res, next) => {
@@ -44,5 +57,6 @@ router.get("/recipeupdate", function (req, res, next) {
 
 
 });
+
 
 module.exports = router;

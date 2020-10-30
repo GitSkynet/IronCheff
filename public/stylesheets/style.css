@@ -85,7 +85,7 @@ body {
       position: absolute;
       display: block;
       width: 100%;
-      background-color: rgb(246, 15, 15);
+      background-color: #495464;
       height: 0px;
       transition: all 0.3s ease-in;
       overflow-y: hidden;
@@ -118,18 +118,26 @@ body {
 /* FIN STYLE NAVBAR */
 
 .homesection1{
-    width: auto;
-    height: 700px;
-    background-image: url('https://imagenes.20minutos.es/files/article_amp/uploads/2020/03/12/coliflor-al-horno.jpeg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://imagenes.20minutos.es/files/article_amp/uploads/2020/03/12/coliflor-al-horno.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(80%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 
 /* Login */
 
 .section-login {
+  width: 100%;
+  height: 600px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -170,4 +178,30 @@ body {
   border: 1px solid aquamarine;
   padding: 5px 10px;
   margin: 10px;
+}
+
+/* PAGINA DE CREAR RECETAS */
+
+.create-recipe form{
+  border: 1px solid grey;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.create-recipe input{
+  width: auto;
+  height: 20px;
+  margin: 5px;
+}
+
+.instrucciones-receta{
+  width: auto;
+  height: fit-content;
 }

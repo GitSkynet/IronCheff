@@ -10,10 +10,9 @@ const recetasSchema = new Schema(
       image: {type: String, default: 'images.media-allrecipes.com/images/75131.jpg'},
       diners: Number,
       score: Number,
-      creator: String,
+      creator: {type: Schema.Types.ObjectId, ref: 'User'},
       idScorer: Number
     });
-
     const Recipe = mongoose.model('Recipes', recetasSchema);
 
     module.exports = Recipe;

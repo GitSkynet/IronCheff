@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const User = require('../models/User');
 const bcrypt = require("bcryptjs");
+const Recipe = require("../models/Recipe");
 
 router.get("/signup", function (req, res, next){
   res.render("auth/signup");
@@ -70,4 +71,43 @@ router.post("/login", async (req, res, next) => {
   } catch (error) {}
 });
 
-module.exports = router;
+router.get("/dashboard", (req, res, next) => {
+    res.render("auth/dashboard");
+});
+
+router.post("/dashboard", async (req, res, next) => {
+  const { name, score, creator, instructions, ingredients} =  req.body
+  let receta = await Recipe.findById(id)
+  res.render("auth/dashboard", receta);
+});
+
+
+
+router.get('/createrecipe', (req, res, next) => {
+  console.log('ESTO ES RES.LOCALS', res.locals)
+  res.render('auth/createrecipes');
+})
+
+router.post('/createrecipe', async (req, res, next) => {
+  const { name, ingredients, instructions, cuisine, image, diners } =  req.body
+
+  let ingr1 = await Ingredients.find( )
+  ingredients = []
+  ingredients.push(ingr1._id)
+
+  let creator = req.locals.currentUserInfo._id
+
+  Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator})
+ let receta = await Recipe.findById(id).populate('User', 'username')
+ console.log(receta);
+ res.render('auth/createrecipes')
+});
+
+
+router.get('/logout', (req, res, next) => {
+  req.session.destroy((err) => {
+    res.redirect('/')
+  })
+})
+
+  module.exports = router;
