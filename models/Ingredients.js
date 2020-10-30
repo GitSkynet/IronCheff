@@ -3,11 +3,9 @@ const Schema = mongoose.Schema;
 
 const ingredientsSchema = new Schema(
     {
-    image: String,
+    image: {type: String, default: 'images.media-allrecipes.com/images/75131.jpg'},
     name: String,
     category: String,
-    quantity: Number,
-    unit: String
     });
 
     const Ingredient = mongoose.model('Ingredient', ingredientsSchema);
