@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const User = require('../models/User');
 const bcrypt = require("bcryptjs");
-const Recipe = require("../models/Recipe");
+const Recipe = require("../models/Ingredient");
 
 router.get("/signup", function (req, res, next){
   res.render("auth/signup");
@@ -89,20 +89,28 @@ router.get('/createrecipe', (req, res, next) => {
 })
 
 router.post('/createrecipe', async (req, res, next) => {
-  const { name, ingredients, instructions, cuisine, image, diners } =  req.body
-
-  let ingr1 = await Ingredients.find( )
-  ingredients = []
-  ingredients.push(ingr1._id)
-
-  let creator = req.locals.currentUserInfo._id
-
-  Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator})
- let receta = await Recipe.findById(id).populate('User', 'username')
- console.log(receta);
- res.render('auth/createrecipes')
+  const { name, ingredients, instructions, cuisine, image, diners } =  req.body;
+  let creator = (res.locals.currentUserInfo._id);
+  try {
+    let oneIngredient = await Ingredient.find({name: ingredients});
+    ingredients =[];
+    ingredients.push(oneIngredient._id);
+    Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator});
+  } catch (error) {
+    console.log('Error creando la receta, prueba en unos instantes', error)
+  }
 });
 
+router.post('/ingredients', async (req, res, next)=>{
+  const { image, name, category } =  req.body;
+  try {
+    let oneIngredient = await Ingredient.find({name: ingredients});
+    ingredients =[];
+    ingredients.push(oneIngredient._id);
+  } catch (error) {
+    console.log('Error obteniendo ingredientes, prueba en unos minutos', error)
+  }
+});
 
 router.get('/logout', (req, res, next) => {
   req.session.destroy((err) => {
@@ -111,3 +119,16 @@ router.get('/logout', (req, res, next) => {
 })
 
   module.exports = router;
+
+//   const { name, ingredients, instructions, cuisine, image, diners } =  req.body
+
+//   let ingr1 = await Ingredients.find( )
+//   ingredients = []
+//   ingredients.push(ingr1._id)
+
+//   let creator = req.locals.currentUserInfo._id
+
+//   Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator})
+//  let receta = await Recipe.findById(id).populate('User', 'username')
+//  console.log(receta);
+//  res.render('auth/createrecipes')

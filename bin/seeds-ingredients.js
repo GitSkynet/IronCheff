@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Ingredient = require('../models/Ingredients');
-const Recipe = require('../models/Ingredients');
+const Ingredient = require('../models/Ingredient');
+const Recipe = require('../models/Ingredient');
 
 mongoose.connect('mongodb://localhost/Proyecto2', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -1411,7 +1411,7 @@ const Ingredients =[
 
 ];
 
-Ingredient.create(recetas, (error)=>{
+Ingredient.create(Ingredients, (error)=>{
     if(error) {throw(error)}
     mongoose.connection.close();
 });

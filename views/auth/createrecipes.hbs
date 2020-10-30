@@ -6,24 +6,28 @@
         <h2>Create recipes</h2>
         <label for="name">Nombre</label>
         <input type="name" name="name" placeholder="Introduce nombre">
-
-        <label for="name">Ingredientes</label>
-        <input type="name" name="name" placeholder="Selecciona ingredientes">
-
+        
         <label for="name" class="instrucciones-receta">Instructions</label>
-        <input type="name" name="name" placeholder="Introduce instrucciones">
+        <input type="name" name="instructions" placeholder="Introduce instrucciones">
 
         <label for="name">Tipo cocina</label>
-        <input type="name" name="name" placeholder="Tipo de cocina...">
+        <input type="name" name="cuisine" placeholder="Tipo de cocina...">
 
         <label for="name">Image</label>
-        <input type="name" name="name" placeholder="Introduce URL de imagen">
+        <input type="name" name="image" placeholder="Introduce URL de imagen">
 
         <label for="name">Comensales</label>
-        <input type="name" name="name" placeholder="Cuántos comensales?">
+        <input type="name" name="diners" placeholder="Cuántos comensales?">
         <button>Create recipe</button>
     </form>
 </div>
-{{!-- {{/if}} --}}
+
+<div>
+    <form action="/ingredients" method="POST">
+        <label for="name">Ingredientes</label>
+        <input type="name" name="ingredients" placeholder="Selecciona ingredientes">
+        <button type="submit">Busca ingredientes</button>
+    </form>
+</div>
 
 <button><a href="/dashboard">Regresa a tu Dashboard</a></button>
