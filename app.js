@@ -52,7 +52,7 @@ app.use(session({
 
   app.use((req, res, next) => {
     if (req.session.currentUser) {
-      res.locals.ingredients = [];
+      res.locals.ingredients;
       res.locals.currentUserInfo = req.session.currentUser;
       res.locals.isUserLoggedIn = true;
     } else {

@@ -9,23 +9,25 @@ router.get("/", function (req, res, next) {
   res.render("home");
 });
 
-router.get("/recipes", (req, res, next) => {
+router.get("/recipes", async(req, res, next) => {
   try {
-    let receta = Recipe.find()
-    res.render("recipes", receta);
+    let receta = await Recipe.find()
+    res.render("recipes", {receta});
   } catch (error) {
     console.log(error)
   }
 });
 
-router.get("/recipes/:id", (req, res, next)=> {
-  try {
-    let receta = Recipe.findById()
-    res.render("showrecipes", receta);
-  } catch (error) {
-    console.log(error)
-  }
-})
+// router.get('/recipes', (req, res, next) => {
+//   Recipe.find()
+//     .then(allRecipesFromDB => {
+//       // console.log('Retrieved books from DB:', allTheBooksFromDB);
+//       res.render('recipes', { books: allRecipesFromDB });
+//     })
+//     .catch(error => {
+//       console.log('Error while getting recipes from the DB: ', error);
+//     })
+// });
 
 router.get("/halloffame", (req, res, next) => {
     res.render("halloffame");
@@ -54,8 +56,23 @@ router.get("/recipeupdate", function (req, res, next) {
   // Recipe.findByIdAndUpdate(userId, { score: recipeScore, IdScore: recipeQuantity }, {new: true})
   
   // TODO ESTO ES ASINCRONO !!!! :(
+});
 
-
+router.get('/recipes/:Id', (req, res, next) => {
+  let recipeId = req.params.recipekId;
+  console.log(recipeId)
+  if (!/^[0-9a-fA-F]{24}$/.test(recipeId)) { 
+    return res.status(404).render('not-found');
+  }
+  Recipe.findOne({'_id': recipeId})
+    .populate('name')
+    .then(recipe => {
+      if (!recipe) {
+          return res.status(404).render('not-found');
+      }
+      res.render("showrecipes", { recipeId })
+    })
+    .catch(next)
 });
 
 

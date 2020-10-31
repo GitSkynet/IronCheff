@@ -82,40 +82,38 @@ router.post("/dashboard", async (req, res, next) => {
   res.render("auth/dashboard", receta);
 });
 
-router.get('/ingredients', (req, res, next) => {
-  res.render('auth/createrecipes');
-})
+// router.get('/ingredients', (req, res, next) => {
+//   res.render('auth/createrecipes');
+// })
 
-router.post('/ingredients', async (req, res, next)=>{
-  try {
-    const ingredients = req.body.ingredients;
-    console.log('INGREDIENTEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSS', ingredients)
-    let oneIngredient = await Ingredient.find({name: ingredients});
-    console.log('INGREDIENTES AÑADIDOOOOOOOSSSSS', oneIngredient)
-    let ingredientsArray =[];
-    // oneIngredient.map(el=>{
-    //   ingredientsArray.push(el._id)
-    // })
-    ingredientsArray.push(oneIngredient);
-    console.log('----------------------ingredientsArray------------------------------------', ingredientsArray)
-    res.locals.ingredients = ingredientsArray;
-  } catch (error) {
-    console.log(error)
-  }
-});
+// router.post('/ingredients', async (req, res, next)=>{
+//   try {
+//     const ingredients = req.body.ingredients;
+//     console.log('INGREDIENTEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSS', ingredients)
+//     let oneIngredient = await Ingredient.find({name: ingredients});
+//     console.log('INGREDIENTES AÑADIDOOOOOOOSSSSS', oneIngredient)
+//     let ingredientsArray =[];
+//     // oneIngredient.map(el=>{
+//     //   ingredientsArray.push(el.name, el.image, el.category)
+//     // });
+//     ingredientsArray.push(oneIngredient);
+//     console.log('----------------------ingredientsArray------------------------------------', ingredientsArray)
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 router.get('/createrecipe', (req, res, next) => {
-  res.render('auth/createrecipes');
-})
+    res.render('auth/createrecipes');
+  })
 
 router.post('/createrecipe', async (req, res, next) => {
-  const { name, instructions, cuisine, image, diners } =  req.body;
+  const { name, ingredients, instructions, cuisine, image, diners } =  req.body;
   console.log('--------------CONSOLE LOG LOCAAAAAALLLLSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS-------------', res.locals.ingredients)
-  let creator = res.locals.currentUserInfo._id;
-  let ingredients = res.locals.ingredients;
   try {
+    let creator = res.locals.currentUserInfo;
     Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator});
-    // res.render('auth/createrecipes')
+    res.render('auth/createrecipes')
   } catch (error) {
     console.log('Error creando la receta, prueba en unos instantes', error)
   }
