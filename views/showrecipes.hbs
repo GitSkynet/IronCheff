@@ -1,3 +1,29 @@
-<h1>SHOW RECIPES ID</h1>
+<h1>Receta de {{byId.name}}</h1>
 
-<form action=""></form>
+<section class="details-recipe">
+    <div class="showimage">
+        <img src="{{byId.image}}" alt="">
+    </div>
+
+    <div class="details-card">
+        <div class="div-details">
+            <p>Cocina: {{byId.cuisine}}</p>
+            <p>Comensales: {{byId.diners}}/10</p>
+        </div>
+
+        <div class="div-details">
+            <p>{{byId.instructions}}</p>
+            <br>
+            <p>{{byId.ingredients}}</p>
+        </div>
+
+        <div class="div-buttons-details">
+            <a href="/update">Actualizar</a>
+            <a href="/delete">Eliminar</a>
+            <a href="/recipes">Volver</a>
+            
+        </div>
+    </div>
+</section>
+
+

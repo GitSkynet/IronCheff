@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const Recipe = require('../models/Recipe');
 
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("home");
@@ -56,22 +57,12 @@ router.get("/recipeupdate", function (req, res, next) {
   // TODO ESTO ES ASINCRONO !!!! :(
 });
 
-router.get('/recipes/:Id', (req, res, next) => {
-  let recipeId = req.params.recipekId;
-  console.log(recipeId)
-  if (!/^[0-9a-fA-F]{24}$/.test(recipeId)) { 
-    return res.status(404).render('not-found');
-  }
-  Recipe.findOne({'_id': recipeId})
-    .populate('name')
-    .then(recipe => {
-      if (!recipe) {
-          return res.status(404).render('not-found');
-      }
-      res.render("showrecipes", { recipeId })
-    })
-    .catch(next)
-});
+router.get('/:id', async (req, res, next) =>{
+  let byId = await Recipe.findById(req.params.id)
+  console.log('AWAIT RECIPES ID!!', byId)
+  res.render('showrecipes', {byId})
+})
+
 
 
 module.exports = router;

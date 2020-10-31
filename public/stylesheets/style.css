@@ -250,3 +250,75 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
+/* /////////////////SHOW PAGE STYLES////////////// */
+
+.div-buttons-details a{
+  width: 80px;
+  height: 30px;
+  background-color: blue;
+  text-align: center;
+  border-radius: 10px;
+  float: right;
+  text-decoration: none;
+  color: white;
+  margin: 15px;
+}
+
+.details-recipe{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+  align-content: space-around;
+  padding: 10px;
+}
+
+.showimage img{
+  width: 500px;
+  height: 500px;
+}
+
+.details-card{
+width: 100%;
+margin: 5px;
+}
+
+.div-details{
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px 5px;
+  margin: 10px;
+}
+
+@media(min-width: 1070px){
+  .details-recipe {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+  };
+  .showimage img{
+    padding: 5px;
+  }
+  .details-card{
+    width: 40%;
+    margin: 5px;
+    border-left: 1px solid grey;
+  };
+  .div-buttons-details a{
+    width: 80px;
+    height: 30px;
+    background-color: blue;
+    text-align: center;
+    border-radius: 10px;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+  }
+};
+
+/* ////////////////END SHOW PAGE STYLES////////////// */
