@@ -2,10 +2,6 @@ var express = require("express");
 var router = express.Router();
 const Recipe = require('../models/Recipe');
 
-const uploadCloud = require('../config/cloudinary.js');
-
-
-
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("home");
