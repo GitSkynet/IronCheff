@@ -3,11 +3,13 @@ var router = express.Router();
 const Recipe = require('../models/Recipe');
 const uploadCloud = require('../configs/cloudinary');
 
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("home");
 });
 
+/* GET RECIPES PAGE */
 router.get("/recipes", async(req, res, next) => {
   try {
     let receta = await Recipe.find()
@@ -17,17 +19,32 @@ router.get("/recipes", async(req, res, next) => {
   }
 });
 
-// router.get('/recipes', (req, res, next) => {
-//   Recipe.find()
-//     .then(allRecipesFromDB => {
-//       // console.log('Retrieved books from DB:', allTheBooksFromDB);
-//       res.render('recipes', { books: allRecipesFromDB });
-//     })
-//     .catch(error => {
-//       console.log('Error while getting recipes from the DB: ', error);
-//     })
-// });
+// UPDATE RECIPES FUNCTION
+router.post('/recipes/:id', function (req, res, next) {
+  const updatedMovie = {
+    title: req.body.title,
+    plot: req.body.plot,
+    genre: req.body.genre,
+  }
+  Movie.update({_id: req.params.id}, updatedMovie, (err, theMovie) => {
+    if (err) {return next(err); }
 
+    res.redirect('/movies');
+  });
+});
+
+// DELETE RECIPES FUNCTION
+router.post(':id/delete', async (req, res, next) =>{
+  try{
+    let elimina = await Recipe.findOneAndRemove({_id: req.params.id})
+    console.log('CONSOLE LOG DE ELIMINAAAAAAA' , elimina )
+    res.redirect('recipes');
+  }catch(err){
+      console.log('Error removing recipes from Data Base: ', err);
+  }
+});
+
+// HALL OF FAME ROUTE
 router.get("/halloffame", (req, res, next) => {
     res.render("halloffame");
 });
@@ -41,6 +58,7 @@ router.use((req, res, next) => {
   }
 });
 
+// SCORE UPDATE FUNCTION
 router.get("/recipeupdate", function (req, res, next) {
   // primero cojo input desde el req.body (el puntaje que da el user) => userValue
   // busco por ID (Recipe.findById) y lo meto en variable (p.e. recipe)
@@ -57,22 +75,11 @@ router.get("/recipeupdate", function (req, res, next) {
   // TODO ESTO ES ASINCRONO !!!! :(
 });
 
-router.get('/recipes/:Id', (req, res, next) => {
-  let recipeId = req.params.recipekId;
-  console.log(recipeId)
-  if (!/^[0-9a-fA-F]{24}$/.test(recipeId)) { 
-    return res.status(404).render('not-found');
-  }
-  Recipe.findOne({'_id': recipeId})
-    .populate('name')
-    .then(recipe => {
-      if (!recipe) {
-          return res.status(404).render('not-found');
-      }
-      res.render("showrecipes", { recipeId })
-    })
-    .catch(next)
+// FIND RECIPE BY ID
+router.get('/:id', async (req, res, next) =>{
+  let byId = await Recipe.findById(req.params.id)
+  console.log('AWAIT RECIPES ID!!', byId)
+  res.render('showrecipes', {byId})
 });
-
 
 module.exports = router;
