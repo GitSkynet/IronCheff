@@ -88,6 +88,27 @@ router.get('/createrecipe', (req, res, next) => {
   res.render('auth/createrecipes');
 })
 
+router.post('/ingredients', async (req, res, next)=>{
+  const {} =  req.body;
+  try {
+    let oneIngredient = await Ingredient.find({name:{"$regex":""}});
+    ingredients =[];
+    ingredients.push(oneIngredient._id);
+  } catch (error) {
+    console.log('Error obteniendo ingredientes, prueba en unos minutos', error)
+  }
+});
+
+
+
+Books.find(
+  { "authors": { "$regex": "Alex", "$options": "i" } },
+  function(err,docs) { 
+  } 
+);
+
+
+
 router.post('/createrecipe', async (req, res, next) => {
   const { name, ingredients, instructions, cuisine, image, diners } =  req.body;
   let creator = (res.locals.currentUserInfo._id);
@@ -101,16 +122,7 @@ router.post('/createrecipe', async (req, res, next) => {
   }
 });
 
-router.post('/ingredients', async (req, res, next)=>{
-  const { image, name, category } =  req.body;
-  try {
-    let oneIngredient = await Ingredient.find({name: ingredients});
-    ingredients =[];
-    ingredients.push(oneIngredient._id);
-  } catch (error) {
-    console.log('Error obteniendo ingredientes, prueba en unos minutos', error)
-  }
-});
+
 
 router.get('/logout', (req, res, next) => {
   req.session.destroy((err) => {
