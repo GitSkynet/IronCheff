@@ -8,6 +8,6 @@ const ingredientsSchema = new Schema(
     category: String,
     });
 
-    const Ingredient = mongoose.model('Ingredient', ingredientsSchema);
+const Ingredient = mongoose.model('Ingredient', ingredientsSchema);
 
-    module.exports = Ingredient;
+module.exports = Ingredient;

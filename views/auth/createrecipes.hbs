@@ -16,18 +16,28 @@
         <label for="name">Image</label>
         <input type="name" name="image" placeholder="Introduce URL de imagen">
 
+        <label for="name">Ingredientes</label>
+        <input type="name" name="ingredients" placeholder="Selecciona ingredientes">
+
         <label for="name">Comensales</label>
         <input type="name" name="diners" placeholder="Cuántos comensales?">
         <button>Create recipe</button>
     </form>
 </div>
 
-<div>
-    <form action="/ingredients" method="POST">
+    {{!-- <form action="/ingredients" method="POST">
         <label for="name">Ingredientes</label>
         <input type="name" name="ingredients" placeholder="Selecciona ingredientes">
         <button type="submit">Busca ingredientes</button>
-    </form>
-</div>
+    </form> --}}
+
+    {{#each ingredientsArray}}
+    <div>
+    <h3>Ingredientes añadidos a la receta</h3>
+        <img src="{{this.image}}" alt="">
+        <h4>{{this.name}}</h4>
+        <h5>{{this.category}}</h5>
+    </div>
+    {{/each}}
 
 <button><a href="/dashboard">Regresa a tu Dashboard</a></button>

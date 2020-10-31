@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Ingredient = require('../models/Ingredient');
-const Recipe = require('../models/Ingredient');
 
 mongoose.connect('mongodb://localhost/Proyecto2', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -1407,8 +1406,6 @@ const Ingredients =[
     name: 'Tomate maduro',
     category: 'Verduras y hortalizas',
 },
-
-
 ];
 
 Ingredient.create(Ingredients, (error)=>{

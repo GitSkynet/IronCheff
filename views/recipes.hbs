@@ -1,8 +1,21 @@
-<h1>Pagina de recetas</h1>
+<section class="section1-recetas">
+    <div>
+    <h2>Recetas</h2>
+    <p>Navega entre todas nuestras recetas, encuentra la que más te guste, márcala como favorita... y disfruta!!</p>
+    
+</div>
+</section>
+
+<section class="section-recetas">
 {{#each receta}}
-<div>
-    <img src="" alt="">
-    <h3></h3>
-    <p></p>
+<div class="div-recetas">
+    <img src="{{this.image}}" alt="">
+    <div class="div-recetas2">
+        <h3>{{this.name}}</h3>
+        <h4>Tipo de cocina: {{this.cuisine}}</h4>
+        <h4>Comensales: {{this.diners}}</h4>
+        <h4>Creador: {{this.creator}}</h4>
+    </div>
 </div>
 {{/each}}
+</section>

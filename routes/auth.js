@@ -2,7 +2,8 @@ var express = require("express");
 var router = express.Router();
 const User = require('../models/User');
 const bcrypt = require("bcryptjs");
-const Recipe = require("../models/Ingredient");
+const Ingredient = require("../models/Ingredient");
+const Recipe = require("../models/Recipe");
 
 router.get("/signup", function (req, res, next){
   res.render("auth/signup");
@@ -81,48 +82,42 @@ router.post("/dashboard", async (req, res, next) => {
   res.render("auth/dashboard", receta);
 });
 
+// router.get('/ingredients', (req, res, next) => {
+//   res.render('auth/createrecipes');
+// })
 
+// router.post('/ingredients', async (req, res, next)=>{
+//   try {
+//     const ingredients = req.body.ingredients;
+//     console.log('INGREDIENTEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSS', ingredients)
+//     let oneIngredient = await Ingredient.find({name: ingredients});
+//     console.log('INGREDIENTES AÑADIDOOOOOOOSSSSS', oneIngredient)
+//     let ingredientsArray =[];
+//     // oneIngredient.map(el=>{
+//     //   ingredientsArray.push(el.name, el.image, el.category)
+//     // });
+//     ingredientsArray.push(oneIngredient);
+//     console.log('----------------------ingredientsArray------------------------------------', ingredientsArray)
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 router.get('/createrecipe', (req, res, next) => {
-  console.log('ESTO ES RES.LOCALS', res.locals)
-  res.render('auth/createrecipes');
-})
+    res.render('auth/createrecipes');
+  })
 
-router.post('/ingredients', async (req, res, next)=>{
-  const {} =  req.body;
+router.post('/createrecipe', async (req, res, next) => {
+  const { name, ingredients, instructions, cuisine, image, diners } =  req.body;
+  console.log('--------------CONSOLE LOG LOCAAAAAALLLLSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS-------------', res.locals.ingredients)
   try {
-    let oneIngredient = await Ingredient.find({name:{"$regex":""}});
-    ingredients =[];
-    ingredients.push(oneIngredient._id);
+    let creator = res.locals.currentUserInfo;
+    Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator});
+    res.render('auth/createrecipes')
   } catch (error) {
     console.log('Error obteniendo ingredientes, prueba en unos minutos', error)
   }
 });
-
-
-
-Books.find(
-  { "authors": { "$regex": "Alex", "$options": "i" } },
-  function(err,docs) { 
-  } 
-);
-
-
-
-router.post('/createrecipe', async (req, res, next) => {
-  const { name, ingredients, instructions, cuisine, image, diners } =  req.body;
-  let creator = (res.locals.currentUserInfo._id);
-  try {
-    let oneIngredient = await Ingredient.find({name: ingredients});
-    ingredients =[];
-    ingredients.push(oneIngredient._id);
-    Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator});
-  } catch (error) {
-    console.log('Error creando la receta, prueba en unos instantes', error)
-  }
-});
-
-
 
 router.get('/logout', (req, res, next) => {
   req.session.destroy((err) => {
