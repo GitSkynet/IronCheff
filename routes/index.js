@@ -19,60 +19,50 @@ router.get("/recipes", async(req, res, next) => {
   }
 });
 
-// // UPDATE RECIPES FUNCTION
-// router.post('/recipes/:id', function (req, res, next) {
-//   const updatedMovie = {
-//     title: req.body.title,
-//     plot: req.body.plot,
-//     genre: req.body.genre,
-//   }
-//   Movie.update({_id: req.params.id}, updatedMovie, (err, theMovie) => {
-//     if (err) {return next(err); }
+// HALL OF FAME ROUTE
+router.get("/halloffame", (req, res, next) => {
+  res.render("halloffame");
+});
 
-//     res.redirect('/movies');
-//   });
-// });
-
-// DELETE RECIPES FUNCTION
-// router.post(':id/delete', async (req, res, next) =>{
-//   try{
-//     let elimina = await Recipe.findOneAndRemove({_id: req.params.id})
-//     console.log('CONSOLE LOG DE ELIMINAAAAAAA' , elimina )
-//     res.redirect('recipes');
-//   }catch(err){
-//       console.log('Error removing recipes from Data Base: ', err);
-//   }
-// });
+router.use((req, res, next) => {
+// if hay un usuario en sesión (si está logged in)
+if (req.session.currentUser) {
+  next();
+} else {
+  res.redirect("/login");
+}
+});
 
 
-router.post('/showrecipes/:id/delete', function(req, res, next) {
-  Recipe.findOne({ _id: req.params.id }, (err, theRecipes) => {
+// UPDATE RECIPES FUNCTIONS
+//Método get
+router.get('/:id/edit', function (req, res, next) {
+  Recipe.findOne({ _id: req.params.id }, (err, theRecipe) => {
     if (err) { return next(err); }
 
-    theRecipes.remove((err) => {
-      if (err) { return next(err); }
-
-      res.redirect('/showrecipes');
+    res.render('auth/edit', {
+      title: `Edit ${theRecipe.name}`,
+      title: `Edit ${theRecipe.cuisine}`,
+      findrecipe: theRecipe
     });
   });
 });
 
-// HALL OF FAME ROUTE
-router.get("/halloffame", (req, res, next) => {
-    res.render("halloffame");
+router.post('/:id/edit', function (req, res, next) {
+  const {name, ingredients, instructions, cuisine, image, diners, score} = req.body;
+  Recipe.update({_id: {_id: req.params.id}}, { $set: {name, ingredients, instructions, cuisine, image, diners, score }})
+  .then((update) => {
+    res.redirect('/recipes');
+  })
+  .catch((error) => {
+    console.log('Error actualizando la receta, prueba en unos minutos', error);
+  })
 });
 
-router.use((req, res, next) => {
-  // if hay un usuario en sesión (si está logged in)
-  if (req.session.currentUser) {
-    next();
-  } else {
-    res.redirect("/login");
-  }
-});
+// END UPDATE RECIPES FUNCTIONS////
 
 // SCORE UPDATE FUNCTION
-router.get("/recipeupdate", function (req, res, next) {
+// router.get("/recipeupdate", function (req, res, next) {
   // primero cojo input desde el req.body (el puntaje que da el user) => userValue
   // busco por ID (Recipe.findById) y lo meto en variable (p.e. recipe)
   // recipeScore = recipe.score
@@ -86,6 +76,20 @@ router.get("/recipeupdate", function (req, res, next) {
   // Recipe.findByIdAndUpdate(userId, { score: recipeScore, IdScore: recipeQuantity }, {new: true})
   
   // TODO ESTO ES ASINCRONO !!!! :(
+// });
+
+// DELETE RECIPES FUNCTION
+
+// router.get('/:id/delete')
+
+router.post('/delete', (req, res, next) =>{
+  Recipe.findByIdAndRemove({ _id: req.params.id }, (err) => {
+    console.log('ELIMINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', req.params.id)
+    if (err){
+      return next('Error en función de ELIMINA RECETA', err);
+    }
+    res.redirect('/recipes');
+  });
 });
 
 // FIND RECIPE BY ID
