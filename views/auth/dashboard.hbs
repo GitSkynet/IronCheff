@@ -3,18 +3,18 @@
 <section class="new-recipes-dashboard">
     <div>
         <h2>Tu perfil</h2>
-        <p>Bienvenido{{findUser.name}}</p>
+        <p>Bienvenido {{findrecipe.name}}</p>
     
         <img src="" alt="">
-        <p>Tu puntuación actual es: {{findUser.score}} </p>
+        <p>Tu puntuación actual es: {{findrecipe.name}}</p>
     </div>
     <div class="/create-recipe">
-    <form action="/dashboard"  enctype="multipart/form-data" method="POST">
+    <form action="dashboard"  enctype="multipart/form-data" method="POST">
         <label for="name">Edita tu nombre</label>
-        <input type="name" name="name" placeholder="{{findUser.name}}">
+        <input type="name" name="name" placeholder="{{findrecipe.name}}">
         
-        <label for="name" >Edita tu imagen de perfil</label>
-        <input type="file">
+        <label for = "name">Imagen</label>
+        <input type = "file" name = "photo" id = "image" value="{{ findrecipe.image }}">
         <button>Actualizar</button>
     </form>
 </div>
