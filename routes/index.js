@@ -48,8 +48,10 @@ router.get('/:id/edit', function (req, res, next) {
   });
 });
 
-router.post('/:id/edit', function (req, res, next) {
-  const {name, ingredients, instructions, cuisine, image, diners, score} = req.body;
+router.post('/:id/edit', uploadCloud.single("photo"), function (req, res, next) {
+  const {name, ingredients, instructions, cuisine, diners, score} = req.body;
+  const image = req.file.url;
+  const imgName = req.file.originalname;
   Recipe.update({_id: {_id: req.params.id}}, { $set: {name, ingredients, instructions, cuisine, image, diners, score }})
   .then((update) => {
     res.redirect('/recipes');

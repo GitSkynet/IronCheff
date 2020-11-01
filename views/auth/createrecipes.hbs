@@ -2,7 +2,7 @@
 
 {{!-- {{#if currentUserInfo}} --}}
 <div class="/create-recipe">
-    <form action="/createrecipe" method="POST">
+    <form action="/createrecipe"  enctype="multipart/form-data" method="POST">
         <h2>Create recipes</h2>
         <label for="name">Nombre</label>
         <input type="name" name="name" placeholder="Introduce nombre">
