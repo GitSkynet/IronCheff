@@ -13,6 +13,6 @@ const recetasSchema = new Schema(
       creator: {type: Schema.Types.ObjectId, ref: 'User'},
       idScorer: Number
     });
-    const Recipe = mongoose.model('Recipe', recetasSchema);
+    const Recipe = mongoose.model('Recipes', recetasSchema);
 
     module.exports = Recipe;

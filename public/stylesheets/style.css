@@ -119,17 +119,23 @@ body {
 
 .homesection1{
   width: 100%;
-  height: 100%;
-  background-image: url("https://imagenes.20minutos.es/files/article_amp/uploads/2020/03/12/coliflor-al-horno.jpeg");
+  height: 500px;
+  background-image: url("https://static2.elcorreo.com/www/multimedia/201901/10/media/cortadas/aplicaciones-aprender-cocinar-2019-U601036856160UwB-U70203477799ehH-624x385@El%20Correo-ElCorreo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   filter: brightness(80%);
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.homesection1 h1{
+  font-size: 40px;
+  color: white;
+  text-align: center;
 }
 
 
