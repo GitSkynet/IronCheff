@@ -24,7 +24,7 @@ router.post("/signup", async (req, res, next) =>{
   const salt = bcrypt.genSaltSync(10);
   const hashPass = bcrypt.hashSync(password, salt);
   try {
-    const user = await User.findOne({email: email});
+    const user = await User.findOne({email: email})
     if(user !== null){
       res.render("auth/signup", {
         errormessage: "The email exist! Try with other user",
