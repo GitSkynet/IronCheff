@@ -89,7 +89,6 @@ router.get('/createrecipe', (req, res, next) => {
 
 router.post('/createrecipe', uploadCloud.single("photo"), async (req, res, next) => {
   const { name, instructions, cuisine, image, diners, ingredients } =  req.body;
-  console.log('--------------CONSOLE LOG LOCAAAAAALLLLSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS-------------', res.locals.ingredients)
   try {
     let creator = res.locals.currentUserInfo;
     await Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator});

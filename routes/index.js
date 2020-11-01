@@ -82,14 +82,13 @@ router.post('/:id/edit', function (req, res, next) {
 
 // router.get('/:id/delete')
 
-router.post('/delete', (req, res, next) =>{
-  Recipe.findByIdAndRemove({ _id: req.params.id }, (err) => {
-    console.log('ELIMINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', req.params.id)
-    if (err){
-      return next('Error en función de ELIMINA RECETA', err);
-    }
-    res.redirect('/recipes');
-  });
+router.post('/:id/delete', async (req, res, next) =>{
+  try {
+    let eliminar = await Recipe.findByIdAndRemove(req.params.id )
+    res.redirect('/recipes')
+  } catch (error) {
+    console.log('Error eliminando la receta, prueba en unos minutos');
+  }
 });
 
 // FIND RECIPE BY ID
