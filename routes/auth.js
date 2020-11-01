@@ -24,7 +24,7 @@ router.post("/signup", async (req, res, next) =>{
   const salt = bcrypt.genSaltSync(10);
   const hashPass = bcrypt.hashSync(password, salt);
   try {
-    const user = await User.findOne({email: email});
+    const user = await User.findOne({email: email})
     if(user !== null){
       res.render("auth/signup", {
         errormessage: "The email exist! Try with other user",
@@ -94,7 +94,7 @@ router.post('/createrecipe', uploadCloud.single("photo"), async (req, res, next)
   const image = await req.file.url;
   const imgName = await req.file.originalname;
   try {
-    let creator = res.locals.currentUserInfo;
+    let creator = res.locals.currentUserInfo
     await Recipe.create({name, ingredients, instructions, cuisine, imgName, image, diners, creator});
     res.render('auth/createrecipes')
   } catch (error) {
@@ -106,7 +106,7 @@ router.post('/createrecipe', uploadCloud.single("photo"), async (req, res, next)
 router.get('/logout', (req, res, next) => {
   req.session.destroy((err) => {
     res.redirect('/')
-  })
+  })  
 })
 
 
