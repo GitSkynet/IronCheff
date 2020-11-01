@@ -86,7 +86,6 @@ router.post("/dashboard", async (req, res, next) => {
 
 router.get('/createrecipe', uploadCloud.single("photo"), (req, res, next) => {
   res.render('auth/createrecipes');
-  
 })
 
 router.post('/createrecipe', uploadCloud.single("photo"), async (req, res, next) => {
