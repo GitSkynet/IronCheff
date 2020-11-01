@@ -2,7 +2,7 @@
 
 {{!-- {{#if currentUserInfo}} --}}
 <div class="/create-recipe">
-    <form action="/createrecipe" method="POST">
+    <form action="/createrecipe"  enctype="multipart/form-data" method="POST">
         <h2>Create recipes</h2>
         <label for="name">Nombre</label>
         <input type="name" name="name" placeholder="Introduce nombre">
@@ -16,8 +16,8 @@
         <label for="name">Ingredientes</label>
         <input type="text" name="ingredients" placeholder="Ingredientes">
 
-        <label for="name">Image</label>
-        <input type="name" name="photo" placeholder="Introduce URL de imagen">
+        <label for="photo">Image</label>
+        <input type="file" name="photo" placeholder="Selecciona archivo...">
 
         <label for="name">Comensales</label>
         <input type="name" name="diners" placeholder="Cuántos comensales?">
