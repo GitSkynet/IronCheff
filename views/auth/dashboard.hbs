@@ -4,13 +4,13 @@
     <div>
         <h2>My favourites</h2>
     </div>
+    <div>
     {{#each receta}}
+        <h3>{{this.image}}</h3>
         <h3>{{this.name}}</h3>
-        <h3>{{this.score}}</h3>
         <h3>{{this.creator}}</h3>
-        <p>{{this.instructions}}</p>
-        <p>{{this.ingredients}}</p>
     {{/each}}
+    </div>
 </section>
 
 <section class="new-recipe">
