@@ -48,8 +48,10 @@ router.get('/:id/edit', function (req, res, next) {
   });
 });
 
-router.post('/:id/edit', function (req, res, next) {
-  const {name, ingredients, instructions, cuisine, image, diners, score} = req.body;
+router.post('/:id/edit', uploadCloud.single("photo"), function (req, res, next) {
+  const {name, ingredients, instructions, cuisine, diners, score} = req.body;
+  const image = req.file.url;
+  const imgName = req.file.originalname;
   Recipe.update({_id: {_id: req.params.id}}, { $set: {name, ingredients, instructions, cuisine, image, diners, score }})
   .then((update) => {
     res.redirect('/recipes');
@@ -82,14 +84,13 @@ router.post('/:id/edit', function (req, res, next) {
 
 // router.get('/:id/delete')
 
-router.post('/delete', (req, res, next) =>{
-  Recipe.findByIdAndRemove({ _id: req.params.id }, (err) => {
-    console.log('ELIMINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', req.params.id)
-    if (err){
-      return next('Error en función de ELIMINA RECETA', err);
-    }
-    res.redirect('/recipes');
-  });
+router.post('/:id/delete', async (req, res, next) =>{
+  try {
+    let eliminar = await Recipe.findByIdAndRemove(req.params.id )
+    res.redirect('/recipes')
+  } catch (error) {
+    console.log('Error eliminando la receta, prueba en unos minutos');
+  }
 });
 
 // FIND RECIPE BY ID

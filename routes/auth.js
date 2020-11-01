@@ -90,16 +90,18 @@ router.get('/createrecipe', (req, res, next) => {
 })
 
 router.post('/createrecipe', uploadCloud.single("photo"), async (req, res, next) => {
-  const { name, instructions, cuisine, image, diners, ingredients } =  req.body;
-  console.log('--------------CONSOLE LOG LOCAAAAAALLLLSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS-------------', res.locals.ingredients)
+  const { name, instructions, cuisine, diners, ingredients } = await req.body;
+  const image = await req.file.url;
+  const imgName = await req.file.originalname;
   try {
     let creator = res.locals.currentUserInfo;
-    await Recipe.create({name, ingredients, instructions, cuisine, image, diners, creator});
+    await Recipe.create({name, ingredients, instructions, cuisine, imgName, image, diners, creator});
     res.render('auth/createrecipes')
   } catch (error) {
     console.log('Error obteniendo ingredientes, prueba en unos minutos', error)
   }
 });
+
 
 router.get('/logout', (req, res, next) => {
   req.session.destroy((err) => {
