@@ -6,6 +6,7 @@ const Ingredient = require("../models/Ingredient");
 const Recipe = require("../models/Recipe");
 const uploadCloud = require('../configs/cloudinary');
 
+
 router.get("/signup", function (req, res, next){
   res.render("auth/signup");
 });
@@ -85,6 +86,7 @@ router.post("/dashboard", async (req, res, next) => {
 
 router.get('/createrecipe', (req, res, next) => {
   res.render('auth/createrecipes');
+  
 })
 
 router.post('/createrecipe', uploadCloud.single("photo"), async (req, res, next) => {

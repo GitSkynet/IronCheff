@@ -19,29 +19,42 @@ router.get("/recipes", async(req, res, next) => {
   }
 });
 
-// UPDATE RECIPES FUNCTION
-router.post('/recipes/:id', function (req, res, next) {
-  const updatedMovie = {
-    title: req.body.title,
-    plot: req.body.plot,
-    genre: req.body.genre,
-  }
-  Movie.update({_id: req.params.id}, updatedMovie, (err, theMovie) => {
-    if (err) {return next(err); }
+// // UPDATE RECIPES FUNCTION
+// router.post('/recipes/:id', function (req, res, next) {
+//   const updatedMovie = {
+//     title: req.body.title,
+//     plot: req.body.plot,
+//     genre: req.body.genre,
+//   }
+//   Movie.update({_id: req.params.id}, updatedMovie, (err, theMovie) => {
+//     if (err) {return next(err); }
 
-    res.redirect('/movies');
-  });
-});
+//     res.redirect('/movies');
+//   });
+// });
 
 // DELETE RECIPES FUNCTION
-router.post(':id/delete', async (req, res, next) =>{
-  try{
-    let elimina = await Recipe.findOneAndRemove({_id: req.params.id})
-    console.log('CONSOLE LOG DE ELIMINAAAAAAA' , elimina )
-    res.redirect('recipes');
-  }catch(err){
-      console.log('Error removing recipes from Data Base: ', err);
-  }
+// router.post(':id/delete', async (req, res, next) =>{
+//   try{
+//     let elimina = await Recipe.findOneAndRemove({_id: req.params.id})
+//     console.log('CONSOLE LOG DE ELIMINAAAAAAA' , elimina )
+//     res.redirect('recipes');
+//   }catch(err){
+//       console.log('Error removing recipes from Data Base: ', err);
+//   }
+// });
+
+
+router.post('/showrecipes/:id/delete', function(req, res, next) {
+  Recipe.findOne({ _id: req.params.id }, (err, theRecipes) => {
+    if (err) { return next(err); }
+
+    theRecipes.remove((err) => {
+      if (err) { return next(err); }
+
+      res.redirect('/showrecipes');
+    });
+  });
 });
 
 // HALL OF FAME ROUTE
