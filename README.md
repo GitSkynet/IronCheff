@@ -2,6 +2,8 @@
 
 <br>
 
+<img src="./public/images/cuisine.jpg" style="border: 1px solid black">
+
 <br>
 
 ## Description
