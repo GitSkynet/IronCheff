@@ -101,7 +101,7 @@ router.post('/createrecipe', uploadCloud.single("photo"), async (req, res, next)
 router.get('/logout', (req, res, next) => {
   req.session.destroy((err) => {
     res.redirect('/')
-  })
+  })  
 })
 
 module.exports = router;
