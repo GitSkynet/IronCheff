@@ -96,7 +96,7 @@ router.post('/createrecipe', uploadCloud.single("photo"), async (req, res, next)
   try {
     let creator = res.locals.currentUserInfo;
     await Recipe.create({name, ingredients, instructions, cuisine, imgName, image, diners, creator});
-    res.render('auth/createrecipes')
+    res.redirect('recipes')
   } catch (error) {
     console.log('Error obteniendo ingredientes, prueba en unos minutos', error)
   }
