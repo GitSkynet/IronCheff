@@ -75,6 +75,8 @@ router.post("/login", async (req, res, next) => {
 });
 
 router.get("/dashboard", (req, res, next) => {
+    const {name, image, score} = req.body;
+    
     res.render("auth/dashboard");
 });
 

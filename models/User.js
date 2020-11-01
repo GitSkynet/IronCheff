@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    name: String,
+    name: {type: String, default: 'Cocinero'},
     email: String,
     password: String,
     image: {type: String, default: 'images.media-allrecipes.com/images/75131.jpg'},
