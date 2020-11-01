@@ -75,16 +75,22 @@ router.post("/login", async (req, res, next) => {
 });
 
 router.get("/dashboard", (req, res, next) => {
-    const {name, image, score} = req.body;
-    
-    res.render("auth/dashboard");
-});
+    res.render('/dashboard')
+  });
 
-router.post("/dashboard", async (req, res, next) => {
-  const { name, score, creator, instructions, ingredients} =  req.body
-  let receta = await Recipe.findById(id)
+router.post("/dashboard", function (req, res, next){
+  const {name, image, score} = req.body
+  User.findById({_id: {_id: req.params.id}}, { $set: {name, image, score }})
+  .then((user) => {
+    res.redirect('/dashboard');
+  })
+  .catch((error) => {
+    console.log('Error actualizando el usuario', error);
+  })
   res.render("auth/dashboard", receta);
 });
+
+
 
 router.get('/createrecipe', uploadCloud.single("photo"), (req, res, next) => {
   res.render('auth/createrecipes');
