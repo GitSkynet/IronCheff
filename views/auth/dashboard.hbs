@@ -1,28 +1,25 @@
 <h1>DASHBOARD PAGE</h1>
 
-<section class="favourite-recipes">
+<section class="new-recipes-dashboard">
     <div>
-        <h2>My favourites</h2>
-    </div>
-    <div>
-    {{#each receta}}
-        <h3>{{this.image}}</h3>
-        <h3>{{this.name}}</h3>
-        <h3>{{this.creator}}</h3>
-    {{/each}}
+        <h2>Tu perfil</h2>
+        <p>Nombre</p>
+        <img src="" alt="">
+        <p>Tu puntuación actual es: </p>
     </div>
 </section>
 
-<section class="new-recipe">
+<section class="dashboard-favourite">
     <div>
-        <h3>Crea una nueva receta</h3>
+        <h2>Tus recetas favoritas</h2>
+        <p>Crea tus recetas y compartelas con la comunidad! Cuantos más seamos, mejor!</p>
+    </div>
+</section>
+
+<section class="create-dashboard">
+    <div>
+        <h2>Añade tus recetas!!</h2>
+        <p>Crea tus recetas y compartelas con la comunidad! Cuantos más seamos, mejor!</p>
         <button><a href="/createrecipe">Crear...</a></button>
-    </div>
-</section>
-
-<section class="upload-recipe"> 
-    <div>
-        <h3>Actualiza tus recetas creadas</h3>
-        <button><a href="/recipes/:id">Actualiza tus recetas</a></button>
     </div>
 </section>
