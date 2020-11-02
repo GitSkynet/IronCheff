@@ -12,6 +12,21 @@ const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session)
 
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+  })
+  .then((x) =>{
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
+  })
+  .catch((err) =>{
+      console.error("Error conecting to Mongo", err);
+    });
+
+
 //bcryptjs, salt rounds y salt
 const bcrypt = require("bcryptjs");
 const saltRounds = 10;
