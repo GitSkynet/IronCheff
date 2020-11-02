@@ -12,7 +12,7 @@ router.get("/", function (req, res, next) {
 /* GET RECIPES PAGE */
 router.get("/recipes", async(req, res, next) => {
   try {
-    let receta = await Recipe.find()
+    let receta = await Recipe.find().populate('creator')
     res.render("recipes", {receta});
   } catch (error) {
     console.log(error)

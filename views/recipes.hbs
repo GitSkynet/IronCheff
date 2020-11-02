@@ -14,7 +14,7 @@
         <h3>{{this.name}}</h3>
         <h4>Tipo de cocina: {{this.cuisine}}</h4>
         <h4>Comensales: {{this.diners}}</h4>
-        <h4>Creador: {{this.creator}}</h4>
+        <h4>Creador: {{this.creator.name}}</h4>
         <a class="button-recipes" href="{{this._id}}">Detalles</a>
          {{#if isCreator}} 
         <a href="{{this._id}}/edit">Editar receta</a>

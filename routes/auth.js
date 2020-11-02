@@ -85,7 +85,24 @@ router.post("/dashboard", async (req, res, next) => {
   res.render("auth/dashboard", receta);
 });
 
+router.get('/:id/editprofile', function (req, res, next){
+  let userProfile = res.locals.currentUserInfo
+  res.render('auth/editprofile', {userProfile})
+})
 
+router.post('/:id/editprofile', uploadCloud.single("photo"), async (req, res, next)=>{
+  const { name} = await req.body;
+  console.log('NAMEEEEEEEEEEEEEEEEEEEEEE', name)
+  const image = await req.file.url;
+  const imgName = await req.file.originalname;
+  try {
+    let nameUser = res.locals.currentUserInfo
+    await User.update({name, imgName, image});
+    res.redirect('recipes')
+  } catch (error) {
+    console.log('Error obteniendo ingredientes, prueba en unos minutos', error)
+  }
+})
 
 
 router.get('/createrecipe', uploadCloud.single("photo"), (req, res, next) => {
