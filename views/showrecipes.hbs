@@ -20,12 +20,12 @@
 
         <div class="div-buttons-details">
             <button><a href="/recipes">Volver</a></button>
-            <form action="{{byId._id}}/delete" method="POST">
              {{#if isCreator}}   
              <button><a href="{{byId._id}}/edit">Actualizar</a></button>
-             <button>Delete</button>
+                <form action="{{byId._id}}/delete" method="POST">
+                    <button>Delete</button>
+                </form>
              {{/if}}
-            </form>
         </div>
         
     </div>
