@@ -366,6 +366,12 @@ margin: 5px;
   background: royalblue;
 }
 
+.new-recipes-dashboard img{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
 .dashboard-favourite{
   padding: 10px;
   margin-top: 15px;
@@ -381,6 +387,17 @@ margin: 5px;
   height: 300px;
   background-color: springgreen;
 }
+
+/* STYLE EDIT PROFILE PAGE */
+
+.profile-edit img{
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+
+/* END STYLE EDIT PROFILE PAGE */
 
 
 /* ////////////////////FOOTER WEB///////////////////// */

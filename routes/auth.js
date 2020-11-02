@@ -90,18 +90,18 @@ router.get('/:id/editprofile', function (req, res, next){
   res.render('auth/editprofile', {userProfile})
 })
 
-router.post('/:id/editprofile', uploadCloud.single("photo"), async (req, res, next)=>{
-  const { name} = await req.body;
+router.post('/:id/editprofile', uploadCloud.single("photo"), function (req, res, next){
+  const {name} = req.body;
   console.log('NAMEEEEEEEEEEEEEEEEEEEEEE', name)
-  const image = await req.file.url;
-  const imgName = await req.file.originalname;
-  try {
-    let nameUser = res.locals.currentUserInfo
-    await User.update({name, imgName, image});
-    res.redirect('recipes')
-  } catch (error) {
-    console.log('Error obteniendo ingredientes, prueba en unos minutos', error)
-  }
+  const image = req.file.url;
+  const imgName = req.file.originalname;
+User.findByIdAndUpdate({_id: {_id: req.params.id}}, { $set: {name, image, imgName}})
+  .then((updateUser) => {
+    res.redirect('/editprofile');
+  })
+  .catch((error) => {
+    console.log('Error actualizando usuario, prueba en unos minutos', error);
+  })
 })
 
 

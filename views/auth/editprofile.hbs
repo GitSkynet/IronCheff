@@ -1,10 +1,10 @@
 <h1>EDIT PROFILE PAGE</h1>
 
-<section>
+<section class="profile-edit">
     <div>
         <h2>Nombre: {{userProfile.name}}</h2>
         <img src={{userProfile.image}} alt="">
-        <form action="{{userProfile._id}}/editprofile" enctype="multipart/form-data" method = "POST">
+        <form action="editprofile" enctype="multipart/form-data" method = "POST">
             <label for = "name">Imagen</label>
             <input type = "file" name = "photo" id = "image" value="{{ userProfile.image }}">
             <label for = "name"> Nombre </label>
