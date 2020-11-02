@@ -15,9 +15,16 @@
         <h4>Tipo de cocina: {{this.cuisine}}</h4>
         <h4>Comensales: {{this.diners}}</h4>
         <h4>Creador: {{this.creator}}</h4>
-        <a href="{{this._id}}">Muestra detalles</a>
+        <a class="button-recipes" href="{{this._id}}">Detalles</a>
+         {{#if isCreator}} 
         <a href="{{this._id}}/edit">Editar receta</a>
+        {{/if}}
     </div>
 </div>
 {{/each}}
 </section>
+
+
+{{!-- <button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button> --}}

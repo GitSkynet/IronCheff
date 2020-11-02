@@ -38,13 +38,10 @@ if (req.session.currentUser) {
 //Método get
 router.get('/:id/edit', function (req, res, next) {
   Recipe.findOne({ _id: req.params.id }, (err, theRecipe) => {
-    if (err) { return next(err); }
-
-    res.render('auth/edit', {
-      title: `Edit ${theRecipe.name}`,
-      title: `Edit ${theRecipe.cuisine}`,
-      findrecipe: theRecipe
-    });
+    if (err) {
+      return next(err);
+    }
+    res.render('auth/edit', {findrecipe: theRecipe});
   });
 });
 
@@ -80,6 +77,8 @@ router.post('/:id/edit', uploadCloud.single("photo"), function (req, res, next) 
   
   // TODO ESTO ES ASINCRONO !!!! :(
 // });
+
+
 
 // DELETE RECIPES FUNCTION
 

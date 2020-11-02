@@ -8,25 +8,25 @@
     <div class="details-card">
         <div class="div-details">
             <p>Cocina: {{byId.cuisine}}</p>
-            <p>Comensales: {{byId.diners}}/10</p>
+            <p>Comensales: {{byId.diners}}</p>
         </div>
 
         <div class="div-details">
             <p>{{byId.ingredients}}</p>
             <br>
             <p>{{byId.instructions}}</p>
+            <p>Puntuación {{byId.score}}/10</p>
         </div>
 
         <div class="div-buttons-details">
-            <a href="/update">Actualizar</a>
-            <a href="/recipes">Volver</a>
-            <form action="{{byId._id}}/delete" method="POST">
+            <button><a href="/recipes">Volver</a></button>
              {{#if isCreator}}   
-             <button> Delete </button>
+             <button><a href="{{byId._id}}/edit">Actualizar</a></button>
+                <form action="{{byId._id}}/delete" method="POST">
+                    <button>Delete</button>
+                </form>
              {{/if}}
-            </form>
         </div>
-        
     </div>
 </section>
 

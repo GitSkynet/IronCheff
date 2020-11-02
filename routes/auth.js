@@ -76,11 +76,9 @@ router.post("/login", async (req, res, next) => {
 
 
 router.get('/dashboard', function (req, res, next) {
-  
   let theUser = res.locals.currentUserInfo
     res.render('auth/dashboard', {theUser});
   });
-
 
 
 router.post("/dashboard", async (req, res, next) => {
