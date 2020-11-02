@@ -8,7 +8,8 @@ const userSchema = new Schema(
     email: String,
     password: String,
     image: {type: String, default: 'images.media-allrecipes.com/images/75131.jpg'},
-    favourites: []
+    favourites: [],
+    score: Number,
   },
   {
     timestamps: true

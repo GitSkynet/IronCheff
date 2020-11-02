@@ -75,25 +75,18 @@ router.post("/login", async (req, res, next) => {
 });
 
 
-  router.get('/dashboard/:id', function (req, res, next) {
-    User.findOne({_id: req.params.id}, (err, theRecipe) => {
-      if (err) { return next(err); }
-      res.render('dashboard', {
-      });
-    });
+router.get('/dashboard', function (req, res, next) {
+  
+  let theUser = res.locals.currentUserInfo
+    res.render('auth/dashboard', {theUser});
   });
 
-router.post("/dashboard", function (req, res, next){
-  const {name, image, score} = req.body
-  User.findById({_id: {_id: req.params.id}}, { $set: {name, image, score }})
-  .then((user) => {
-    res.redirect('/dashboard');
-  })
-  .catch((error) => {
-    console.log('Error actualizando el usuario', error);
-  })
+
+
+router.post("/dashboard", async (req, res, next) => {
   res.render("auth/dashboard", receta);
 });
+
 
 
 

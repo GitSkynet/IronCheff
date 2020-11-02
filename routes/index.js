@@ -64,9 +64,10 @@ router.post('/:id/edit', uploadCloud.single("photo"), function (req, res, next) 
 // END UPDATE RECIPES FUNCTIONS////
 
 // SCORE UPDATE FUNCTION
-// router.get("/recipeupdate", function (req, res, next) {
+// router.get("/[nombre-de-ruta-para-puntuar-receta]", function (req, res, next) {
   // primero cojo input desde el req.body (el puntaje que da el user) => userValue
   // busco por ID (Recipe.findById) y lo meto en variable (p.e. recipe)
+  
   // recipeScore = recipe.score
   // recipeQuantity = recipe.IdScore
 
@@ -96,8 +97,15 @@ router.post('/:id/delete', async (req, res, next) =>{
 // FIND RECIPE BY ID
 router.get('/:id', async (req, res, next) =>{
   let byId = await Recipe.findById(req.params.id)
+  let isCreator = false
+  if (byId.creator == res.locals.currentUserInfo._id){
+    isCreator = true;
+  }
+  else{
+    isCreator = false;
+  }
   console.log('AWAIT RECIPES ID!!', byId)
-  res.render('showrecipes', {byId})
+  res.render('showrecipes', {byId, isCreator})
 });
 
 module.exports = router;

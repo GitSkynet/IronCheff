@@ -21,9 +21,12 @@
             <a href="/update">Actualizar</a>
             <a href="/recipes">Volver</a>
             <form action="{{byId._id}}/delete" method="POST">
-                <button> Delete </button>
+             {{#if isCreator}}   
+             <button> Delete </button>
+             {{/if}}
             </form>
         </div>
+        
     </div>
 </section>
 
