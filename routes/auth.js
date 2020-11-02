@@ -74,30 +74,17 @@ router.post("/login", async (req, res, next) => {
   } catch (error) {}
 });
 
-router.get("/dashboard", function(req, res, next) {
-  const {name, image} = req.body;
-  User.findOne({ _id: req.params.id })
-    .then((user) => {
-      res.render("auth/dashboard", { user });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
+
+router.get('/dashboard', function (req, res, next) {
+  let theUser = res.locals.currentUserInfo
+    res.render('auth/dashboard', {theUser});
+  });
 
 
-router.post("/dashboard", uploadCloud.single("photo"), async (req, res, next) => {
-  const {name, image} = req.body;
-  // const image = req.file.url;
-  // const imgName = req.file.originalname;
-  User.updateOne({_id: req.params.id}, { $set: {name, image}})
-  .then((update) => {
-    res.redirect('/dashboard');
-  })
-  .catch((error) => {
-    console.log('Error actualizando usuario, prueba en unos minutos', error);
-  })
+router.post("/dashboard", async (req, res, next) => {
+  res.render("auth/dashboard", receta);
 });
+
 
 
 
