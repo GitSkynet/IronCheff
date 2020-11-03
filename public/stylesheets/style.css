@@ -135,10 +135,6 @@
 
 
 /* NAVBAR STYLE */
-*{
-  margin: 0;
-  padding: 0;
-}
 
 body {
     font-family: 'segoe ui';
@@ -254,16 +250,44 @@ body {
 
 .homesection1{
   width: 100%;
-  height: 500px;
-  background-image: url("https://static2.elcorreo.com/www/multimedia/201901/10/media/cortadas/aplicaciones-aprender-cocinar-2019-U601036856160UwB-U70203477799ehH-624x385@El%20Correo-ElCorreo.jpg");
+  height: 400px;
+  background-image: url("https://res.cloudinary.com/dmkhzosvq/image/upload/v1604414386/recipes/tendencias-recetas-destacada_azlvgw.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(80%);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  top: 0;
-  left: 0;
-  z-index: -1;
+  color: white;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  align-content: center;
+}
+
+.homediv1{
+  width: auto;
+  height: 430px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.homesection1 .bordehome1 .homediv1 h1{
+  padding: 20px;
+  font-size: 80px;
+  color: red;
+}
+
+.homesection1 .bordehome1 .homediv1 p{
+  font-size: 20px;
+}
+
+.bordehome1{
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
 }
 
 .homesection1 h1{
@@ -289,6 +313,58 @@ body {
   height: 400px;
 }
 
+.homediv1 div{
+  width: auto;
+  height: 60px;
+}
+
+@media(min-width: 340px){
+  .homesection1{
+    min-width: 100%;
+    height: 430px;
+    background-image: url("https://res.cloudinary.com/dmkhzosvq/image/upload/v1604414386/recipes/tendencias-recetas-destacada_azlvgw.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .homediv1{
+    width: auto;
+    height: 360px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .homesection1 .homediv1 h1{
+    font-size: 50px;
+    color: white;
+  }
+
+  .homediv1 div{
+    width: auto;
+    height: 60px;
+    float: center;
+  }
+  
+  .homesection1 .homediv1 p{
+    font-size: 20px;
+  }
+  .bordehome1{
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+  }
+}
+
 /*END HOME SECTION*/
 
 /* CARROUSEL */
@@ -302,7 +378,6 @@ html, body {
 .carousel {
     position: relative;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
-    margin-top: 26px;
 }
 
 .carousel-inner {
@@ -415,6 +490,21 @@ html, body {
     font-family: 'Open Sans', sans-serif;
     z-index: 9999;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
+}
+
+@media(max-width: 600px){
+  .carousel-item {
+    position: absolute;
+    opacity: 3;
+    -webkit-transition: opacity 0.2s ease-out;
+    transition: opacity 0.9s ease-out;
+}
+
+  .carousel-item img {
+    display: block;
+    height: 300px;
+    width: 100%;
+  }
 }
 
 /* END CARROUSEL */
