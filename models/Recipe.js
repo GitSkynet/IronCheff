@@ -6,7 +6,7 @@ const recetasSchema = new Schema(
       name: String,
       ingredients: String,
       instructions: String,
-      cuisine: String,
+      cuisine: {type: String, enum: ["Española", "Americana", "Argentina", "Catalana"]},
       image: {type: String, default: 'images.media-allrecipes.com/images/75131.jpg'},
       diners: Number,
       score: Number,
@@ -16,3 +16,5 @@ const recetasSchema = new Schema(
     const Recipe = mongoose.model('Recipes', recetasSchema);
 
     module.exports = Recipe;
+
+    //Locro lean//

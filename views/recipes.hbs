@@ -7,6 +7,9 @@
 </section>
 
 <section class="section-recetas">
+    {{#if errorMessage}}
+        <h2>{{errorMessage}}</h2>
+    {{/if}}
 {{#each receta}}
 <div class="div-recetas">
     <img src="{{this.image}}" alt="">
@@ -16,16 +19,7 @@
         <h4>Comensales: {{this.diners}}</h4>
         <h4>Creador: {{this.creator.name}}</h4>
         <button type="button" class="btn btn-primary"><a href="{{this._id}}">Detalles</a></button>
-         {{!-- {{#if isCreator}}
-         <button type="button" class="btn btn-warning">Warning</button>
-        <a href="{{this._id}}/edit">Editar receta</a>
-        {{/if}} --}}
     </div>
 </div>
 {{/each}}
 </section>
-
-
-{{!-- <button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-danger">Info</button> --}}
