@@ -19,6 +19,20 @@ router.get("/recipes", async(req, res, next) => {
   }
 });
 
+router.get('/recipes/:cuisine', async (req, res, next) =>{
+  try {
+    let cuisine = req.params.cuisine;
+    let receta = await Recipe.find({cuisine: cuisine})
+    console.log('consolelog de COCINAAAAAAA', receta)
+    res.render("recipes", {receta})
+    if(receta.length == 0){
+      res.render('recipes', {errorMessage: 'No hay recetas aún, añade algunas para completar!!'})
+    }
+  } catch (error) {
+    console.log('Error entrando a la categoría, prueba en unos instantes', error)
+  }
+})
+
 // HALL OF FAME ROUTE
 router.get("/halloffame", (req, res, next) => {
   res.render("halloffame");
