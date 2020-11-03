@@ -1,12 +1,11 @@
 <section class="create-recipe">
     <form action="/createrecipe"  enctype="multipart/form-data" method="POST">
-        <h2>Crea tu receta!</h2>
-        {{!-- <img src="/images/form-recetas.jpg" alt=""> --}}
+        <h2>¡Crea tu receta!</h2>
         <label for="name">Nombre</label>
-        <input type="name" name="name" placeholder="Introduce nombre">
+        <input type="name" name="name" placeholder="  Introduce nombre">
         
-        <label for="name">Instructions</label>
-        <textarea type="name" name="instructions" cols="40" rows="10" placeholder="Introduce instrucciones"></textarea>
+        <label for="name">Instrucciones</label>
+        <textarea type="name" name="instructions" cols="30" rows="4" placeholder=" Introduce instrucciones"></textarea>
 
         <label for="name">Tipo cocina</label>
         <select name="cuisine">
@@ -17,16 +16,16 @@
         </select>
 
         <label for="name">Ingredientes</label>
-        {{!-- <input type="text" name="ingredients" placeholder="Ingredientes"> --}}
-        <textarea type="text" name="ingredients" cols="40" rows="10" placeholder="Añade ingredientes"></textarea>
+        <textarea type="text " name="ingredients" cols="30" rows="4" placeholder=" Añade ingredientes"></textarea>
 
-        <label for="name">Image</label>
-        <input type="file" name="photo" placeholder="Introduce imagen">
+        <label for="name">Imagen</label>
+        <input class="img-button" type="file" name="photo" placeholder="Introduce tu imagen">
 
         <label for="name">Comensales</label>
-        <input type="name" name="diners" placeholder="Cuántos comensales?">
-        <button>Create recipe</button>
+        <input type="name" name="diners" placeholder="  Número de comensales.">
+        <button>Crea tu receta</button>
+        
+        {{!-- <button><a href="/dashboard">Regresa a tu Dashboard</a></button> --}}
     </form>
 </section>
 
-<button><a href="/dashboard">Regresa a tu Dashboard</a></button>
