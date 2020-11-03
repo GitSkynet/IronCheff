@@ -482,6 +482,7 @@ body {
 .create-recipe form{
   width: 280px;
   height: 100%;
+  margin-top: -45px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -499,16 +500,6 @@ body {
   background-image: url('https://i.pinimg.com/originals/d3/6d/46/d36d462db827833805497d9ea78a1343.jpg');
   background-position: center;
   background-size: cover;
-}
-
-.create-recipe form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: center;
-  
 }
 
 .create-recipe h2 {
@@ -569,7 +560,7 @@ body {
 
   .create-recipe form{
     width: 280px;
-    margin-top: 10px;
+    margin-top: -35px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -590,16 +581,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
   
-    
-  }
-  
-  .create-recipe form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
     
   }
   
