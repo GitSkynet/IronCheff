@@ -259,13 +259,9 @@ body {
   background-size: cover;
   background-position: auto;
   background-repeat: no-repeat;
-  /* margin-bottom: 272px; */
-  /* filter: brightness(80%);
+ margin-bottom: 272px; */
+ filter: brightness(80%);
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-<<<<<<< HEAD
-  position: sticky; */
-=======
->>>>>>> 08a0373e3aba74a5feb84a8f83b552687955ecfc
   top: 0;
   left: 0;
   z-index: -1;
