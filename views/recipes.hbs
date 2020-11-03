@@ -14,17 +14,18 @@
         <h3>{{this.name}}</h3>
         <h4>Tipo de cocina: {{this.cuisine}}</h4>
         <h4>Comensales: {{this.diners}}</h4>
-        <h4>Creador: {{this.creator}}</h4>
-        <a class="button-recipes" href="{{this._id}}">Detalles</a>
-         {{#if isCreator}} 
+        <h4>Creador: {{this.creator.name}}</h4>
+        <button type="button" class="btn btn-primary"><a href="{{this._id}}">Detalles</a></button>
+         {{!-- {{#if isCreator}}
+         <button type="button" class="btn btn-warning">Warning</button>
         <a href="{{this._id}}/edit">Editar receta</a>
-        {{/if}}
+        {{/if}} --}}
     </div>
 </div>
 {{/each}}
 </section>
 
 
-{{!-- <button type="button" class="btn btn-danger">Danger</button>
+{{!-- <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button> --}}
+<button type="button" class="btn btn-danger">Info</button> --}}
