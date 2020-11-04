@@ -6,13 +6,13 @@ const recetasSchema = new Schema(
       name: String,
       ingredients: String,
       instructions: String,
-      cuisine: {type: String, enum: ["Española", "Japonesa", "Argentina", "Catalana", "Italiana", "Americana"]},
-      typefood: {type: String, enum: ["Entrante", "PrimerPlato", "SegundoPlato", "Postre"]},
+      cuisine: {type: String, enum: ["Española", "Japonesa", "Argentina", "Catalana", "Italiana", "Mexicana"]},
       image: {type: String, default: 'images.media-allrecipes.com/images/75131.jpg'},
       diners: Number,
       score: Number,
       creator: {type: Schema.Types.ObjectId, ref: 'User'},
-      idScorer: Number
+      idScorer: Number,
+      typefood: {type: String, enum: ["Entrantes", "Primero", "Segundo", "Postre"]},
     });
     const Recipe = mongoose.model('Recipes', recetasSchema);
 

@@ -1,132 +1,77 @@
-(function() {
+Vue.config.devtools = true;
 
-	function init(item) {
-		var items = item.querySelectorAll('li'),
-        current = 0,
-        autoUpdate = true,
-        timeTrans = 4000;
-        
-		//create nav
-		var nav = document.createElement('nav');
-		nav.className = 'nav_arrows';
+Vue.component('card', {
+  template: `
+    <div class="card-wrap"
+      @mousemove="handleMouseMove"
+      @mouseenter="handleMouseEnter"
+      @mouseleave="handleMouseLeave"
+      ref="card">
+      <div class="card"
+        :style="cardStyle">
+        <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
+        <div class="card-info">
+          <slot name="header"></slot>
+          <slot name="content"></slot>
+        </div>
+      </div>
+    </div>`,
+  mounted() {
+    this.width = this.$refs.card.offsetWidth;
+    this.height = this.$refs.card.offsetHeight;
+  },
+  props: ['dataImage'],
+  data: () => ({
+    width: 0,
+    height: 0,
+    mouseX: 0,
+    mouseY: 0,
+    mouseLeaveDelay: null
+  }),
+  computed: {
+    mousePX() {
+      return this.mouseX / this.width;
+    },
+    mousePY() {
+      return this.mouseY / this.height;
+    },
+    cardStyle() {
+      const rX = this.mousePX * 30;
+      const rY = this.mousePY * -30;
+      return {
+        transform: `rotateY(${rX}deg) rotateX(${rY}deg)`
+      };
+    },
+    cardBgTransform() {
+      const tX = this.mousePX * -40;
+      const tY = this.mousePY * -40;
+      return {
+        transform: `translateX(${tX}px) translateY(${tY}px)`
+      }
+    },
+    cardBgImage() {
+      return {
+        backgroundImage: `url(${this.dataImage})`
+      }
+    }
+  },
+  methods: {
+    handleMouseMove(e) {
+      this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width/2;
+      this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height/2;
+    },
+    handleMouseEnter() {
+      clearTimeout(this.mouseLeaveDelay);
+    },
+    handleMouseLeave() {
+      this.mouseLeaveDelay = setTimeout(()=>{
+        this.mouseX = 0;
+        this.mouseY = 0;
+      }, 1000);
+    }
+  }
+});
 
-		//create button prev
-		var prevbtn = document.createElement('button');
-		prevbtn.className = 'prev';
-		prevbtn.setAttribute('aria-label', 'Prev');
-
-		//create button next
-		var nextbtn = document.createElement('button');
-		nextbtn.className = 'next';
-		nextbtn.setAttribute('aria-label', 'Next');
-
-		//create counter
-		var counter = document.createElement('div');
-		counter.className = 'counter';
-		counter.innerHTML = "<span>1</span><span>"+items.length+"</span>";
-
-		if (items.length > 1) {
-			nav.appendChild(prevbtn);
-			nav.appendChild(counter);
-			nav.appendChild(nextbtn);
-			item.appendChild(nav);
-		}
-
-		items[current].className = "current";
-		if (items.length > 1) items[items.length-1].className = "prev_slide";
-
-		var navigate = function(dir) {
-			items[current].className = "";
-
-			if (dir === 'right') {
-				current = current < items.length-1 ? current + 1 : 0;
-			} else {
-				current = current > 0 ? current - 1 : items.length-1;
-			}
-
-			var	nextCurrent = current < items.length-1 ? current + 1 : 0,
-				prevCurrent = current > 0 ? current - 1 : items.length-1;
-
-			items[current].className = "current";
-			items[prevCurrent].className = "prev_slide";
-			items[nextCurrent].className = "";
-
-			//update counter
-			counter.firstChild.textContent = current + 1;
-		}
-    
-    item.addEventListener('mouseenter', function() {
-			autoUpdate = false;
-		});
-
-		item.addEventListener('mouseleave', function() {
-			autoUpdate = true;
-		});
-
-		setInterval(function() {
-			if (autoUpdate) navigate('right');
-		},timeTrans);
-    
-		prevbtn.addEventListener('click', function() {
-			navigate('left');
-		});
-
-		nextbtn.addEventListener('click', function() {
-			navigate('right');
-		});
-
-		//keyboard navigation
-		document.addEventListener('keydown', function(ev) {
-			var keyCode = ev.keyCode || ev.which;
-			switch (keyCode) {
-				case 37:
-					navigate('left');
-					break;
-				case 39:
-					navigate('right');
-					break;
-			}
-		});
-
-		// swipe navigation
-		// from http://stackoverflow.com/a/23230280
-		item.addEventListener('touchstart', handleTouchStart, false);        
-		item.addEventListener('touchmove', handleTouchMove, false);
-		var xDown = null;
-		var yDown = null;
-		function handleTouchStart(evt) {
-			xDown = evt.touches[0].clientX;
-			yDown = evt.touches[0].clientY;
-		};
-		function handleTouchMove(evt) {
-			if ( ! xDown || ! yDown ) {
-				return;
-			}
-
-			var xUp = evt.touches[0].clientX;
-			var yUp = evt.touches[0].clientY;
-
-			var xDiff = xDown - xUp;
-			var yDiff = yDown - yUp;
-
-			if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-				if ( xDiff > 0 ) {
-					/* left swipe */
-					navigate('right');
-				} else {
-					navigate('left');
-				}
-			} 
-			/* reset values */
-			xDown = null;
-			yDown = null;
-		};
-
-
-	}
-
-	[].slice.call(document.querySelectorAll('.cd-slider')).forEach( function(item) {
-		init(item);
-	});
-
-})();
+const app = new Vue({
+  el: '#app'
+});

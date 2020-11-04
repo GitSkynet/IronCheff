@@ -19,6 +19,20 @@ router.get("/recipes", async(req, res, next) => {
   }
 });
 
+router.get('/recipes/plato/:typefood', async (req, res, next)=>{
+  try {
+    let plato = req.params.typefood;
+    let recetasObj = await Recipe.find({typefood: plato})
+    console.log('PLATOOOOOOOOOOOO', recetasObj)
+    res.render('recipes', {recetasObj})
+    if(recetasObj.length == 0){
+      res.render('recipes', {errorMessage: 'No hay platos aún, añade algunos para completar!!'})
+    }
+  } catch (error) {
+    console.log('Error buscando platos en la base de datos, prueba en unos minutos', error)
+  }
+})
+
 router.get('/recipes/:cuisine', async (req, res, next) =>{
   try {
     let cuisine = req.params.cuisine;
@@ -32,6 +46,7 @@ router.get('/recipes/:cuisine', async (req, res, next) =>{
     console.log('Error entrando a la categoría, prueba en unos instantes', error)
   }
 })
+
 
 // HALL OF FAME ROUTE
 router.get("/halloffame", (req, res, next) => {
@@ -60,10 +75,10 @@ router.get('/:id/edit', function (req, res, next) {
 });
 
 router.post('/:id/edit', uploadCloud.single("photo"), function (req, res, next) {
-  const {name, ingredients, instructions, cuisine, diners, score} = req.body;
+  const {name, ingredients, instructions, cuisine, diners, typefood, score} = req.body;
   const image = req.file.url;
   const imgName = req.file.originalname;
-  Recipe.update({_id: {_id: req.params.id}}, { $set: {name, ingredients, instructions, cuisine, image, diners, score }})
+  Recipe.update({_id: {_id: req.params.id}}, { $set: {name, ingredients, instructions, cuisine, image, diners, typefood, score }})
   .then((update) => {
     res.redirect('/recipes');
   })
