@@ -203,7 +203,7 @@ body {
     .nav > .nav-btn > label {
       display: inline-block;
       width: 50px;
-      height: 50px;
+      height: 24px;
       padding: 13px;
     }
     .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
@@ -292,7 +292,6 @@ body {
   border: 1px solid white;
   border-radius: 5px;
   padding: 20px;
-  margin: 10px;
 }
 
 .homesection1 h1{
@@ -623,7 +622,8 @@ html, body {
 
 .create-recipe h2 {
   font-family: arial;
- 
+  width: 180px;
+  color: white;
 }
 
 .create-recipe label {
