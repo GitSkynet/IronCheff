@@ -150,43 +150,43 @@ body {
     width: 100%;
     background-color: #495464;
     position: relative;
-  }
+}
   
-  .nav > .nav-header {
+.nav > .nav-header {
     display: inline;
-  }
+}
   
-  .nav > .nav-header > .nav-title {
+.nav > .nav-header > .nav-title {
     display: inline-block;
     font-size: 22px;
     color: #fff;
     padding: 2px;
-  }
+}
   
-  .nav > .nav-btn {
+.nav > .nav-btn {
     display: none;
-  }
+}
   
-  .nav > .nav-links {
+.nav > .nav-links {
     display: inline;
     float: right;
     font-size: 18px;
-  }
+}
   
-  .nav > .nav-links > a {
+.nav > .nav-links > a {
     display: inline-block;
     padding: 13px 10px 13px 10px;
     text-decoration: none;
     color: #efefef;
-  }
+}
 
-  .nav > .nav-links > a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
   
-  .nav > #nav-check {
-    display: none;
-  }
+.nav > #nav-check {
+  display: none;
+}
   
   @media (max-width:600px) {
 
@@ -566,7 +566,7 @@ html, body {
   margin: 10px;
 }
 
-@media(min-width: 340px){
+@media (min-width: 340px){
   .form-login form{
     width: 280px;
     border: 1px solid grey;
@@ -613,7 +613,7 @@ html, body {
 
 .create-recipe h2 {
   font-family: arial;
-  width: 180px;
+  width: 250px;
   color: white;
 }
 
@@ -660,7 +660,7 @@ html, body {
 }
 
 .create-recipe .img-button {
-  width: 150px;
+  width: 100px;
   height: 30px;
 }
 
@@ -689,14 +689,12 @@ html, body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-  
-    
   }
   
   .create-recipe h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 15px;
-    font-size: 40px;
+    font-size: 35px;
     color: white;
   }
   
@@ -709,12 +707,12 @@ html, body {
   
   .create-recipe label {
     margin: 5px;
-    
   }
   
   .create-recipe select {
     margin: 10px;
   }
+
   .create-recipe input {
     margin: 10px;
     width: 250px;
@@ -735,16 +733,20 @@ html, body {
     border-radius: 10px;
     
   }
+
   .create-recipe button a  {
     text-decoration: none;
   }
   
-  .create-recipe .img-button {
-    width: 125px;
+  .img-button {
+    width: 150px;
     color: whitesmoke;
+    border-radius: 5px;
   }
+}
 
 /*final creador recestas*/
+
 .section1-recetas{
   width: 100%;
   height: 400px;
@@ -1093,5 +1095,3 @@ footer {
   }
 }
 /* END OF CSS OF FOOTER */
-
-/* ////////////////////END FOOTER WEB/////////////////////  */
