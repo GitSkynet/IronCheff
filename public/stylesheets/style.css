@@ -620,7 +620,7 @@ html, body {
 .create-recipe label {
   margin: 5px;
   font-family: arial;
- 
+  color: white;
 }
 
 .create-recipe label {
@@ -662,7 +662,6 @@ html, body {
 .create-recipe .img-button {
   width: 150px;
   height: 30px;
-  
 }
 
  
@@ -744,7 +743,6 @@ html, body {
     width: 125px;
     color: whitesmoke;
   }
-  } 
 
 /*final creador recestas*/
 .section1-recetas{
@@ -1093,6 +1091,4 @@ footer {
 }
 }
 /* END OF CSS OF FOOTER *
-
-
 /* ////////////////////END FOOTER WEB///////////////////// */
