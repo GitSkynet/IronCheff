@@ -404,8 +404,8 @@ html, body {
 
 .carousel-item img {
     display: block;
-    height: auto;
-    max-width: 100%;
+    height: 450px;
+    width: 100%;
 }
 
 .carousel-control {
@@ -505,7 +505,7 @@ html, body {
 }
 
   .carousel-item img {
-    display: block;
+    display: inline-block;
     height: 300px;
     width: 100%;
   }
