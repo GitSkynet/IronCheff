@@ -6,7 +6,7 @@ const recetasSchema = new Schema(
       name: String,
       ingredients: String,
       instructions: String,
-      cuisine: {type: String, enum: ["Española", "Americana", "Argentina", "Catalana"]},
+      cuisine: {type: String, enum: ["Española", "Japonesa", "Argentina", "Catalana"]},
       image: {type: String, default: 'images.media-allrecipes.com/images/75131.jpg'},
       diners: Number,
       score: Number,

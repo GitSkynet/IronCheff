@@ -26,6 +26,11 @@
   border-color: #007bff;
 }
 
+.btn-primary a{
+  text-decoration: none;
+  color: white;
+}
+
 .btn-primary:hover {
   color: #fff;
   background-color: #0069d9;
@@ -135,10 +140,6 @@
 
 
 /* NAVBAR STYLE */
-*{
-  margin: 0;
-  padding: 0;
-}
 
 body {
     font-family: 'segoe ui';
@@ -149,43 +150,43 @@ body {
     width: 100%;
     background-color: #495464;
     position: relative;
-  }
+}
   
-  .nav > .nav-header {
+.nav > .nav-header {
     display: inline;
-  }
+}
   
-  .nav > .nav-header > .nav-title {
+.nav > .nav-header > .nav-title {
     display: inline-block;
     font-size: 22px;
     color: #fff;
     padding: 2px;
-  }
+}
   
-  .nav > .nav-btn {
+.nav > .nav-btn {
     display: none;
-  }
+}
   
-  .nav > .nav-links {
+.nav > .nav-links {
     display: inline;
     float: right;
     font-size: 18px;
-  }
+}
   
-  .nav > .nav-links > a {
+.nav > .nav-links > a {
     display: inline-block;
     padding: 13px 10px 13px 10px;
     text-decoration: none;
     color: #efefef;
-  }
+}
 
-  .nav > .nav-links > a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
   
-  .nav > #nav-check {
-    display: none;
-  }
+.nav > #nav-check {
+  display: none;
+}
   
   @media (max-width:600px) {
 
@@ -202,7 +203,7 @@ body {
     .nav > .nav-btn > label {
       display: inline-block;
       width: 50px;
-      height: 50px;
+      height: 24px;
       padding: 13px;
     }
     .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
@@ -254,16 +255,43 @@ body {
 
 .homesection1{
   width: 100%;
-  height: 500px;
-  background-image: url("https://static2.elcorreo.com/www/multimedia/201901/10/media/cortadas/aplicaciones-aprender-cocinar-2019-U601036856160UwB-U70203477799ehH-624x385@El%20Correo-ElCorreo.jpg");
+  height: 400px;
+  background-image: url("https://res.cloudinary.com/dmkhzosvq/image/upload/v1604414386/recipes/tendencias-recetas-destacada_azlvgw.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(80%);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  top: 0;
-  left: 0;
-  z-index: -1;
+  color: white;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  align-content: center;
+}
+
+.homediv1{
+  width: auto;
+  height: 430px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.homesection1 .bordehome1 .homediv1 h1{
+  padding: 20px;
+  font-size: 80px;
+  color: red;
+}
+
+.homesection1 .bordehome1 .homediv1 p{
+  font-size: 20px;
+}
+
+.bordehome1{
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 .homesection1 h1{
@@ -289,6 +317,58 @@ body {
   height: 400px;
 }
 
+.homediv1 div{
+  width: auto;
+  height: 60px;
+}
+
+@media(min-width: 340px){
+  .homesection1{
+    min-width: 100%;
+    height: 430px;
+    background-image: url("https://res.cloudinary.com/dmkhzosvq/image/upload/v1604414386/recipes/tendencias-recetas-destacada_azlvgw.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .homediv1{
+    width: auto;
+    height: 360px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .homesection1 .homediv1 h1{
+    font-size: 50px;
+    color: white;
+  }
+
+  .homediv1 div{
+    width: auto;
+    height: 60px;
+    float: center;
+  }
+  
+  .homesection1 .homediv1 p{
+    font-size: 20px;
+  }
+  .bordehome1{
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+  }
+}
+
 /*END HOME SECTION*/
 
 /* CARROUSEL */
@@ -302,7 +382,6 @@ html, body {
 .carousel {
     position: relative;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
-    margin-top: 26px;
 }
 
 .carousel-inner {
@@ -325,8 +404,8 @@ html, body {
 
 .carousel-item img {
     display: block;
-    height: auto;
-    max-width: 100%;
+    height: 450px;
+    width: 100%;
 }
 
 .carousel-control {
@@ -417,13 +496,28 @@ html, body {
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
 }
 
+@media(max-width: 600px){
+  .carousel-item {
+    position: absolute;
+    opacity: 3;
+    -webkit-transition: opacity 0.2s ease-out;
+    transition: opacity 0.9s ease-out;
+}
+
+  .carousel-item img {
+    display: inline-block;
+    height: 300px;
+    width: 100%;
+  }
+}
+
 /* END CARROUSEL */
 
 /* LOGIN & SIGNUP*/
 
 .section-login {
   width: 100%;
-  height: 600px;
+  height: 650px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -438,7 +532,7 @@ html, body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 16px 16px 10px lightgray;
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -446,6 +540,7 @@ html, body {
   justify-content: center;
   align-content: center;
   background-color: white;
+  margin: 10px;
 }
 
 .form-login form h2 {
@@ -471,23 +566,186 @@ html, body {
   margin: 10px;
 }
 
+@media (min-width: 340px){
+  .form-login form{
+    width: 280px;
+    border: 1px solid grey;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 6px 5px lightgray;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+  }
+}
+
 /* END LOGIN & SIGNUP*/
 
 /* PAGINA DE CREAR RECETAS */
 
 .create-recipe form{
-  border: 1px solid grey;
-  padding: 30px;
-  border-radius: 10px;
-  margin-top: 60px;
+  width: 280px;
+  height: 100%;
+  margin-top: -45px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  margin: 10px;
+  
 }
+.create-recipe {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-image: url('https://i.pinimg.com/originals/d3/6d/46/d36d462db827833805497d9ea78a1343.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.create-recipe h2 {
+  font-family: arial;
+  width: 250px;
+  color: white;
+}
+
+.create-recipe label {
+  margin: 5px;
+  font-family: arial;
+  color: white;
+}
+
+.create-recipe label {
+  margin: 5px;
+  font-family: arial;
+}
+
+.create-recipe select {
+  margin: 5px;
+  font-family: arial;
+}
+.create-recipe input {
+  margin: 5px;
+  width: 250px;
+  border-radius: 5px;
+  font-family: arial;
+}
+
+.create-recipe textarea {
+  margin: 5px;
+  width: 250px;
+  border-radius: 10px;
+  font-family: arial;
+}
+
+.create-recipe button {
+  background-color: aquamarine;
+  border: 1px solid aquamarine;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.create-recipe button a  {
+  text-decoration: none;
+}
+
+.create-recipe .img-button {
+  width: 100px;
+  height: 30px;
+}
+
+ 
+@media(min-width: 340px){
+
+  .create-recipe form{
+    width: 280px;
+    margin-top: -35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+  
+  }
+
+  .create-recipe {
+    width: 100%;
+    height: 745px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: url('https://i.pinimg.com/originals/d3/6d/46/d36d462db827833805497d9ea78a1343.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .create-recipe h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 15px;
+    font-size: 35px;
+    color: white;
+  }
+  
+  .create-recipe label {
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 21px;
+  }
+  
+  .create-recipe label {
+    margin: 5px;
+  }
+  
+  .create-recipe select {
+    margin: 10px;
+  }
+
+  .create-recipe input {
+    margin: 10px;
+    width: 250px;
+    border-radius: 10px;
+  }
+  
+  .create-recipe textarea {
+    margin: 5px;
+    width: 250px;
+    border-radius: 10px;
+  }
+  
+  .create-recipe button {
+    background-color: aquamarine;
+    border: 1px solid aquamarine;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 10px;
+    
+  }
+
+  .create-recipe button a  {
+    text-decoration: none;
+  }
+  
+  .img-button {
+    width: 150px;
+    color: whitesmoke;
+    border-radius: 5px;
+  }
+}
+
+/*final creador recestas*/
 
 .section1-recetas{
   width: 100%;
@@ -824,6 +1082,7 @@ footer {
   line-height: 25px;
   margin-right: 3px;
 }
+
 @media (max-width: 880px) {
   .footer-distributed {
       font: bold 14px sans-serif;
@@ -844,27 +1103,25 @@ footer {
       font-size: auto;
   }
 }
+
 @media (max-width: 1024px) {
-.footer-distributed {
-  font: bold 14px sans-serif;
+  .footer-distributed {
+    font: bold 14px sans-serif;
+  }
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-center,
+  .footer-distributed .footer-right {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .footer-distributed .footer-center i {
+    margin-left: 0;
+  }
+  .main {
+    line-height: normal;
+    font-size: auto;
+  }
 }
-.footer-distributed .footer-left,
-.footer-distributed .footer-center,
-.footer-distributed .footer-right {
-  display: block;
-  width: 100%;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.footer-distributed .footer-center i {
-  margin-left: 0;
-}
-.main {
-  line-height: normal;
-  font-size: auto;
-}
-}
-/* END OF CSS OF FOOTER *
-
-
-/* ////////////////////END FOOTER WEB///////////////////// */
+/* END OF CSS OF FOOTER */
