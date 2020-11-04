@@ -110,12 +110,12 @@ router.get('/createrecipe', uploadCloud.single("photo"), (req, res, next) => {
 })
 
 router.post('/createrecipe', uploadCloud.single("photo"), async (req, res, next) => {
-  const { name, instructions, cuisine, diners, ingredients } = await req.body;
+  const { name, instructions, cuisine, diners, typefood, ingredients } = await req.body;
   const image = await req.file.url;
   const imgName = await req.file.originalname;
   try {
     let creator = res.locals.currentUserInfo
-    await Recipe.create({name, ingredients, instructions, cuisine, imgName, image, diners, creator});
+    await Recipe.create({name, ingredients, instructions, cuisine, imgName, image, diners, typefood, creator});
     res.redirect('recipes')
   } catch (error) {
     console.log('Error obteniendo ingredientes, prueba en unos minutos', error)

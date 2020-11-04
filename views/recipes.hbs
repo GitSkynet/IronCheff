@@ -10,8 +10,26 @@
     {{#if errorMessage}}
         <h2>{{errorMessage}}</h2>
     {{/if}}
+{{#if receta}}
 {{#each receta}}
 <div class="div-recetas">
+    <img src="{{this.image}}" alt="">
+    <div class="div-recetas2">
+        <h3>{{this.name}}</h3>
+        <h4>Tipo de cocina: {{this.cuisine}}</h4>
+        <h4>Comensales: {{this.diners}}</h4>
+        <h4>Creador: {{this.creator.name}}</h4>
+        <h4>Tipo plato: {{typefood}}</h4>
+        <button type="button" class="btn btn-primary"><a href="{{this._id}}">Detalles</a></button>
+    </div>
+</div>
+{{/each}}
+
+{{/if}}
+    
+{{#if recetasObj}}
+    {{#each recetasObj}}
+    <div class="div-recetas">
     <img src="{{this.image}}" alt="">
     <div class="div-recetas2">
         <h3>{{this.name}}</h3>
@@ -21,5 +39,6 @@
         <button type="button" class="btn btn-primary"><a href="{{this._id}}">Detalles</a></button>
     </div>
 </div>
-{{/each}}
+    {{/each}}
+{{/if}}
 </section>

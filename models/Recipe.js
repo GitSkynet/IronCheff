@@ -11,7 +11,8 @@ const recetasSchema = new Schema(
       diners: Number,
       score: Number,
       creator: {type: Schema.Types.ObjectId, ref: 'User'},
-      idScorer: Number
+      idScorer: Number,
+      typefood: {type: String, enum: ["Entrantes", "Primero", "Segundo", "Postre"]},
     });
     const Recipe = mongoose.model('Recipes', recetasSchema);
 
