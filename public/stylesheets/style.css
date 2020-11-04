@@ -6,6 +6,11 @@
 
 /* BOOTSTRAP STYLES */
 
+.btn a{
+  text-decoration: none;
+  color: white;
+}
+
 .btn {
   margin: 10px;
   display: inline-block;
@@ -1142,14 +1147,14 @@ footer {
 }
 /* END OF CSS OF FOOTER */
 
-/* ////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////// CARROUSEL 1 ////////////////////////////////////////////// */
 
 @import url('https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap');
 
  .page-content {
 	 display: grid;
 	 grid-gap: 1rem;
-	 margin: 0 auto;
+	 margin: 5px auto;
 	 font-family: var(--font-sans);
 }
  @media (min-width: 600px) {
@@ -1205,16 +1210,16 @@ footer {
 	 transition: transform calc(var(--d) * 2) var(--e);
 }
  .card:nth-child(1):before {
-	 background-image: url(https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+	 background-image: url(https://content-recetas.lecturas.com/medio/2019/02/06/entrantes_llenos_de_colorido_4848f0c5_800x800.jpg);
 }
  .card:nth-child(2):before {
-	 background-image: url(https://images.unsplash.com/photo-1533903345306-15d1c30952de?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+	 background-image: url(https://www.lg.com/ar/images/microsite/cookbook-macaroni/Macaroni_Macaroni_M.jpg);
 }
  .card:nth-child(3):before {
-	 background-image: url(https://images.unsplash.com/photo-1545243424-0ce743321e11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+	 background-image: url(https://live.mrf.io/statics/i/ps/www.cocinacaserayfacil.net/wp-content/uploads/2020/05/Bacalao-al-pil-pil-519x630.jpg);
 }
  .card:nth-child(4):before {
-	 background-image: url(https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+	 background-image: url(https://res.cloudinary.com/dmkhzosvq/image/upload/v1604501095/recipes/Sin_t%C3%ADtulo_e2vkgj.png);
 }
  .content {
 	 position: relative;
@@ -1259,7 +1264,8 @@ footer {
 	 outline: 1px dashed yellow;
 	 outline-offset: 3px;
 }
- @media (hover: hover) and (min-width: 600px) {
+
+@media (hover: hover) and (min-width: 600px) {
 	 .card:after {
 		 transform: translateY(0);
 	}
@@ -1291,5 +1297,154 @@ footer {
 	 .card:focus-within:before, .card:focus-within:after, .card:focus-within .content, .card:focus-within .content > *:not(.title) {
 		 transition-duration: 0s;
 	}
+};
+
+/* /////////////////////////// CARROUSEL 2 ///////////////////////////////// */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+*, *:before, *:after {
+  box-sizing: border-box;
 }
- 
+
+html, body {
+  height: 100%;
+}
+
+body {
+  color: #444;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.slider {
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.slider__nav {
+  width: 12px;
+  height: 12px;
+  margin: 2rem 12px;
+  border-radius: 50%;
+  z-index: 10;
+  outline: 6px solid #ccc;
+  outline-offset: -6px;
+  box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.slider__nav:checked {
+  -webkit-animation: check 0.4s linear forwards;
+          animation: check 0.4s linear forwards;
+}
+.slider__nav:checked:nth-of-type(1) ~ .slider__inner {
+  left: 0%;
+}
+.slider__nav:checked:nth-of-type(2) ~ .slider__inner {
+  left: -100%;
+}
+.slider__nav:checked:nth-of-type(3) ~ .slider__inner {
+  left: -200%;
+}
+.slider__nav:checked:nth-of-type(4) ~ .slider__inner {
+  left: -300%;
+}
+.slider__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 100%;
+  -webkit-transition: left 0.4s;
+  transition: left 0.4s;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+.slider__contents {
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.slider__image {
+  font-size: 2.7rem;
+  color: #2196F3;
+}
+.slider__caption {
+  font-weight: 500;
+  margin: 2rem 0 1rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+}
+.slider__txt {
+  color: #999;
+  margin-bottom: 3rem;
+  max-width: 300px;
+}
+
+@-webkit-keyframes check {
+  50% {
+    outline-color: #333;
+    box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+  }
+  100% {
+    outline-color: #333;
+    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  }
+}
+
+@keyframes check {
+  50% {
+    outline-color: #333;
+    box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+  }
+  100% {
+    outline-color: #333;
+    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  }
+}
+
