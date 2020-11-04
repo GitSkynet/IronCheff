@@ -9,49 +9,109 @@
     </div>
 </section>
 
-<section>
-    <div class="carousel">
-    <div class="carousel-inner">
-        <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-        <div class="carousel-item">
-            <a href="/recipes/Española"><img src="https://lh3.googleusercontent.com/proxy/bSCrK-qO7BikJ-pzfES2xpMN3pvNQiyqxdHC6-CNwR0t6VqVR5IxJANwf37oJ65mkQqZCf4G82UA_iwsJaFJYifnotwwIAPKWblry_nPRSWn3f_tHb0"></a>
+<section class="sectioncarrousel">
+    <div class="container">
+        <div class="carousel">
+            <input type="radio" name="slides" checked="checked" id="slide-1">
+            <input type="radio" name="slides" id="slide-2">
+            <input type="radio" name="slides" id="slide-3">
+            <input type="radio" name="slides" id="slide-4">
+            <input type="radio" name="slides" id="slide-5">
+            <input type="radio" name="slides" id="slide-6">
+            <ul class="carousel__slides">
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1041/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Las mejores recetas de la cocina catalana!
+                            <span class="credit"><a href="/recipes/Catalana">Cocina Catalana</a></span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1043/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Christian Joudrey</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1044/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Steve Carter</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1045/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Aleksandra Boguslawska</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1049/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Rosan Harmens</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1052/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Annie Spratt</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>    
+            <ul class="carousel__thumbnails">
+                <li>
+                    <label for="slide-1"><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-2"><img src="https://picsum.photos/id/1043/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-3"><img src="https://picsum.photos/id/1044/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-4"><img src="https://picsum.photos/id/1045/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-5"><img src="https://picsum.photos/id/1049/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
+                </li>
+            </ul>
         </div>
-        <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="" checked="checked">
-        <div class="carousel-item">
-            <a href="/recipes/Catalana"><img src="https://estag.fimagenes.com/img/2/2/m/j/s/2mjs_900.jpg"></a>
-        </div>
-        <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="" checked="checked">
-        <div class="carousel-item">
-            <a href="/recipes/Argentina"><img src="https://www.recetas-argentinas.com/base/stock/Post/2-image/2-image_web.jpg"></a>
-        </div>
-        <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="" checked="checked">
-        <div class="carousel-item">
-            <a href="/recipes/Japonesa"><img src="https://res.cloudinary.com/dmkhzosvq/image/upload/v1604485513/recipes/japonesa_b8qk93.png"></a>
-        </div>
-        <label for="carousel-4" class="carousel-control prev control-1">‹</label>
-        <label for="carousel-2" class="carousel-control next control-1">›</label>
-        <label for="carousel-1" class="carousel-control prev control-2">‹</label>
-        <label for="carousel-3" class="carousel-control next control-2">›</label>
-        <label for="carousel-2" class="carousel-control prev control-3">‹</label>
-        <label for="carousel-4" class="carousel-control next control-3">›</label>
-        <label for="carousel-3" class="carousel-control prev control-4">‹</label>
-        <label for="carousel-1" class="carousel-control next control-4">›</label>
-        <ol class="carousel-indicators">
-            <li>
-                <label for="carousel-1" class="carousel-bullet">•</label>
-            </li>
-            <li>
-                <label for="carousel-2" class="carousel-bullet">•</label>
-            </li>
-            <li>
-                <label for="carousel-3" class="carousel-bullet">•</label>
-            </li>
-            <li>
-                <label for="carousel-4" class="carousel-bullet">•</label>
-            </li>
-        </ol>
     </div>
-</div>
+</section>
+
+<section>
+    
 </section>
 
 <section class="homesection2">
