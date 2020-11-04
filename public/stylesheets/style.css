@@ -937,17 +937,26 @@ margin: 5px;
 } /*No eliminar*/
 
 .new-recipes-dashboard{
-  padding: 10px;
-  margin-top: 15px;
+  color: black;
   width: 100%;
   height: 300px;
-  background: royalblue;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start; 
+  align-items: center; 
+  align-content: flex-start; 
 }
 
+.new-recipes-dashboard p {
+  font-size: xx-large;
+  font-weight: bold;
+  padding-top: 20px;
+}
 .new-recipes-dashboard img{
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 125px;
+  height: 125px;
 }
 
 .dashboard-favourite{
@@ -959,13 +968,72 @@ margin: 5px;
 }
 
 .create-dashboard{
-  padding: 10px;
-  margin-top: 15px;
-  width: 100%;
-  height: 300px;
-  background-color: springgreen;
+  color: black;
+    margin-top: 15px;
+    min-width: 360px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start; 
+    align-items: center; 
+    align-content: flex-start;
+    text-align: center;
+    font-size: x-large;
 }
 
+.create-dashboard h2 {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.background-dashboard{
+  background-image: url('https://i.pinimg.com/736x/94/4f/a4/944fa48d9947de0fe9d3e428ec66e99e.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media(min-width: 600px){
+
+  .new-recipes-dashboard{
+    color: black;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start; 
+    align-items: center; 
+    align-content: flex-start; 
+  }
+
+  .create-dashboard{
+    color: black;
+      margin-top: 15px;
+      min-width: 360px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start; 
+      align-items: center; 
+      align-content: flex-start;
+      text-align: center;
+      font-size: x-large;
+  }
+
+  .new-recipes-dashboard p {
+    font-size: xx-large;
+    font-weight: bold;
+    padding-top: 20px;
+  }
+  .new-recipes-dashboard img{
+    border-radius: 50%;
+    width: 125px;
+    height: 125px;
+  }
+}
 /* STYLE EDIT PROFILE PAGE */
 
 .profile-edit img{
@@ -1173,7 +1241,7 @@ footer {
 	 align-items: flex-end;
 	 overflow: hidden;
 	 padding: 1rem;
-	 width: 100%;
+	 width: 100wh;
 	 text-align: center;
 	 color: whitesmoke;
 	 background-color: whitesmoke;
