@@ -1387,6 +1387,9 @@ body {
           flex-flow: row nowrap;
 }
 .slider__contents {
+  background-image: url('https://s3-us-west-2.amazonaws.com/lasaga-blog/media/images/grupo_imagen.original.jpg');
+  background-position: center;
+  background-size: cover;
   height: 100%;
   padding: 2rem;
   text-align: center;
