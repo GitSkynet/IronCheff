@@ -1,15 +1,14 @@
 <section class="create-recipe">
     <form action = "edit" enctype="multipart/form-data" method = "POST" >
     <h2>Edita tu receta!</h2>
-      <div>
-        <label for = "name"> Name </label>
+        <label for = "name"> Nombre </label>
         <input type = "text" name = "name" id = "name" value="{{ findrecipe.name }}">
-      
-        <label for = "ingredients"> Ingredients </label>
-        <input type = "text" name = "ingredients" id = "ingredients" value="{{ findrecipe.Ingredients }}">
 
-        <label for = "instructions">instructions</label>
-        <input type = "text" name = "instructions" id = "instructions" value="{{ findrecipe.instructions }}">
+        <label for="name">Ingredientes</label>
+        <textarea type="text " name="ingredients" cols="30" rows="4" placeholder=" Añade ingredientes" value="{{ findrecipe.Ingredients }}"></textarea>
+
+        <label for="name">Instrucciones</label>
+        <textarea type="name" name="instructions" cols="30" rows="4" placeholder=" Introduce instrucciones" value="{{ findrecipe.instructions }}"></textarea>
 
         <label for="name">Tipo cocina</label>
         <select name="cuisine">
@@ -36,10 +35,7 @@
         <label for = "diners">Comensales</label>
         <input type = "text" name = "diners" id = "diners" value="{{ findrecipe.diners }}">
         
-        <label for = "score">Puntuación</label>
-        <input type = "text" name = "score" id = "score" value="{{ findrecipe.score }}">
-      <button> Submit </button>
-      </div>
+      <button class="btn"> Editar </button>
     </form>
     </section>
 
