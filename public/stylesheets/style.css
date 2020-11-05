@@ -909,6 +909,7 @@ body {
 /* /////////////////SHOW PAGE STYLES////////////// */
 
 .div-buttons-details{
+  width: 100wh;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -946,6 +947,22 @@ margin: 5px;
   border-radius: 10px;
   padding: 10px 5px;
   margin: 10px;
+}
+
+@media(max-width: 760px){
+  .div-buttons-details{
+    width: 100wh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    margin: 20px;
+  }
 }
 
 @media(min-width: 1070px){
@@ -1637,9 +1654,9 @@ footer a .icons {
   grid-template-areas: "navigation pie-recipe pie-image" "context context pie-image";
   grid-template-columns: min-content auto 35%;
   grid-template-rows: auto min-content;
-  margin: auto;
+  margin: 20px;
   min-height: 100vh;
-  max-height: calc(100vh - 4em);
+  max-height: calc(100% - 4em);
   background: #fff;
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
 }
@@ -1669,7 +1686,7 @@ footer a .icons {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: inherit;
+  width: 100%;
   height: 100wh;
 
 }
@@ -1723,6 +1740,7 @@ footer a .icons {
   grid-template-columns: 30px auto;
   grid-template-rows: repeat(4, max-content);
   line-height: 1.6;
+  height: 100%;
 }
 .pie-recipe__title {
   grid-column: span 2;
@@ -1808,6 +1826,10 @@ footer a .icons {
     height: 300px;
     width: 100%;
  }
+ .pie-image img{
+  height: 300px;
+  width: 100wh;
+}
   .pie-recipe {
     padding: 25px;
   }
