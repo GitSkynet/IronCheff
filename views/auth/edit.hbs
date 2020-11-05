@@ -1,5 +1,6 @@
-<h1>Edita tu receta!</h1>
+<section class="create-recipe">
     <form action = "edit" enctype="multipart/form-data" method = "POST" >
+    <h2>Edita tu receta!</h2>
       <div>
         <label for = "name"> Name </label>
         <input type = "text" name = "name" id = "name" value="{{ findrecipe.name }}">
@@ -37,6 +38,7 @@
       <button> Submit </button>
       </div>
     </form>
+    </section>
 
     {{!-- name: req.body.String,
     ingredients: req.body.String,

@@ -1036,10 +1036,41 @@ margin: 5px;
 }
 /* STYLE EDIT PROFILE PAGE */
 
+.profile-edit{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+  align-content: center;
+  text-align: center;
+  background-image: url('https://i.pinimg.com/736x/94/4f/a4/944fa48d9947de0fe9d3e428ec66e99e.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}
+
+.profile-edit div:last-child{
+  margin: 10px;
+}
+
+.profile-edit input{
+  margin: 10px;
+}
+
+.profile-edit h1{
+  font-size: 40px;
+}
+
+.profile-edit button{
+  margin: 10px;
+}
+
 .profile-edit img{
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
 }
 
 
@@ -1367,7 +1398,7 @@ footer {
 	}
 };
 
-/* /////////////////////////// CARROUSEL 2 ///////////////////////////////// */
+/* /////////////////////////// CARROUSEL 2 FINAL HOME PRUEBA ///////////////////////////////// */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
@@ -1507,4 +1538,7 @@ footer {
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
 }
+
+
+
 
