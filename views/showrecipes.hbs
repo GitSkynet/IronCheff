@@ -1,6 +1,6 @@
 <div class="main-content">
     <div class="navigation">Tu receta seleccionada</div>
-    <div class="pie-image">
+    <div class="pie-image"></div>
         <img src="{{byId.image}}">
     </div>
     <div class="pie-recipe">
@@ -50,21 +50,21 @@
                 <p>{{byId.instructions}}</p>
             </div>
         </div>
+
     </div>
 </div>
 
-<div class="div-buttons-details">
-    <div>
+
+<div>
     <button type="button" class="btn btn-primary"><a href="/recipes">Volver</a></button>
-    </div>
-    <div>
+</div>
+<div>
     {{#if isCreator}}
     <button type="button" class="btn btn-warning"><a href="{{byId._id}}/edit">Actualizar</a></button>
-    </div>
-    <div>
+</div>
+<div>
     <form action="{{byId._id}}/delete" method="POST">
         <button class="btn btn-danger">Eliminar</button>
     </form>
-    </div>
-    {{/if}}
 </div>
+{{/if}}
