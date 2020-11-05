@@ -75,15 +75,11 @@ router.post("/login", async (req, res, next) => {
 });
 
 
-router.get('/dashboard', function (req, res, next) {
-  let theUser = res.locals.currentUserInfo
+router.get('/dashboard', async function (req, res, next) {
+  console.log('consolelog3333333333333333', res.locals.currentUserInfo)
+  let theUser = await User.findById(res.locals.currentUserInfo._id)
     res.render('auth/dashboard', {theUser});
   });
-
-
-router.post("/dashboard", async (req, res, next) => {
-  res.render("auth/dashboard", receta);
-});
 
 router.get('/:id/editprofile', function (req, res, next){
   let userProfile = res.locals.currentUserInfo
@@ -95,9 +91,14 @@ router.post('/:id/editprofile', uploadCloud.single("photo"), function (req, res,
   console.log('NAMEEEEEEEEEEEEEEEEEEEEEE', name)
   const image = req.file.url;
   const imgName = req.file.originalname;
-User.findByIdAndUpdate( {_id: req.params.id}, { $set: {name, image, imgName}})
+  let nombre = req.body.name;
+  console.log('NOPMBRENUEVOOOOOOOOOOOOOOOOOOOOOOOOO', nombre)
+User.findByIdAndUpdate({_id: req.params.id}, { $set: {name, image, imgName}}, {new:true})
   .then((updateUser) => {
-    res.redirect('auth/editprofile');
+    console.log('consolelooooogggggggg', res.locals.currentUserInfo)
+    res.locals.currentUserInfo = updateUser;
+    console.log('consolelooooog22222222222222', res.locals.currentUserInfo)
+    res.redirect('/dashboard');
   })
   .catch((error) => {
     console.log('Error actualizando usuario, prueba en unos minutos', error);

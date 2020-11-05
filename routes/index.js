@@ -99,8 +99,8 @@ router.get('/recipes/:cuisine', async (req, res, next) =>{
 
 
 // HALL OF FAME ROUTE
-router.get("/halloffame", (req, res, next) => {
-  res.render("halloffame");
+router.get("/aboutus", (req, res, next) => {
+  res.render("aboutus");
 });
 
 router.use((req, res, next) => {
