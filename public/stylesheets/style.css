@@ -721,7 +721,7 @@ body {
 
   .create-recipe form{
     width: 280px;
-    margin-top: -35px;
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -938,19 +938,33 @@ margin: 5px;
 } /*No eliminar*/
 
 .new-recipes-dashboard{
-  padding: 10px;
-  margin-top: 15px;
+  color: black;
   width: 100%;
+<<<<<<< HEAD
   height: 150px;
   text-align: center;
 
 
+=======
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start; 
+  align-items: center; 
+  align-content: flex-start; 
+>>>>>>> 155b51bf6de5313009bc51d65bc516a5db4bd55f
 }
 
+.new-recipes-dashboard p {
+  font-size: xx-large;
+  font-weight: bold;
+  padding-top: 20px;
+}
 .new-recipes-dashboard img{
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 125px;
+  height: 125px;
 }
 
 .dashboard-favourite{
@@ -962,6 +976,7 @@ margin: 5px;
 }
 
 .create-dashboard{
+<<<<<<< HEAD
   padding: 10px;
   margin-top: 15px;
   width: 100%;
@@ -995,8 +1010,74 @@ margin: 5px;
 .dashboard-button:hover{
   letter-spacing: 0.8em;
   background-color: #F08C99;
+=======
+  color: black;
+    margin-top: 15px;
+    min-width: 360px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start; 
+    align-items: center; 
+    align-content: flex-start;
+    text-align: center;
+    font-size: x-large;
 }
 
+.create-dashboard h2 {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.background-dashboard{
+  background-image: url('https://i.pinimg.com/736x/94/4f/a4/944fa48d9947de0fe9d3e428ec66e99e.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+>>>>>>> 155b51bf6de5313009bc51d65bc516a5db4bd55f
+}
+
+@media(min-width: 600px){
+
+  .new-recipes-dashboard{
+    color: black;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start; 
+    align-items: center; 
+    align-content: flex-start; 
+  }
+
+  .create-dashboard{
+    color: black;
+      margin-top: 15px;
+      min-width: 360px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start; 
+      align-items: center; 
+      align-content: flex-start;
+      text-align: center;
+      font-size: x-large;
+  }
+
+  .new-recipes-dashboard p {
+    font-size: xx-large;
+    font-weight: bold;
+    padding-top: 20px;
+  }
+  .new-recipes-dashboard img{
+    border-radius: 50%;
+    width: 125px;
+    height: 125px;
+  }
+}
 /* STYLE EDIT PROFILE PAGE */
 
 .profile-edit img{
@@ -1204,7 +1285,7 @@ footer {
 	 align-items: flex-end;
 	 overflow: hidden;
 	 padding: 1rem;
-	 width: 100%;
+	 width: 100wh;
 	 text-align: center;
 	 color: whitesmoke;
 	 background-color: whitesmoke;
@@ -1338,17 +1419,6 @@ footer {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
-body {
-  color: #444;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
 .slider {
   height: 600px;
   position: relative;
@@ -1418,6 +1488,9 @@ body {
           flex-flow: row nowrap;
 }
 .slider__contents {
+  background-image: url('https://s3-us-west-2.amazonaws.com/lasaga-blog/media/images/grupo_imagen.original.jpg');
+  background-position: center;
+  background-size: cover;
   height: 100%;
   padding: 2rem;
   text-align: center;

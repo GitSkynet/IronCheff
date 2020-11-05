@@ -1,19 +1,23 @@
 
+<section class="background-dashboard">
 <section class="new-recipes-dashboard">
-    <div>
-        <p class="text-dashboard">Bienvenido {{theUser.name}}</p>
+    <p>Bienvenido  {{theUser.name}}</p>
+    <div>  
+        <img src={{theUser.image}} alt="Image Error">
     </div>
     <div>
-        <img class="image-dashboard" src={{theUser.image}} alt="Image Error">
-    </div>
-    <div>
-        <a href="{{theUser._id}}/editprofile">Editar Perfil</a>
+         <button type="button" class="btn btn-primary"><a href="{{theUser._id}}/editprofile">Editar Perfil</a></button>
+        
     </div>
 </section>
 
 <section class="create-dashboard">
+     <h2>Añade tus recetas!!</h2>
     <div>
-        <p class="text-dashboard">Crea tus recetas y compartelas con la comunidad!</p>
-        <button class="dashboard-button"><a href="/createrecipe">Crea una nueva receta</a></button>
+        <p>Crea tus recetas y compartelas con la comunidad! Cuantos más seamos, mejor!</p>
     </div>
+    <div>
+        <button type="button" class="btn btn-primary"><a href="/createrecipe">Crear...</a></button>
+    </div>
+</section>
 </section>

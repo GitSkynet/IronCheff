@@ -19,6 +19,56 @@ router.get("/recipes", async(req, res, next) => {
   }
 });
 
+// DELETE RECIPES FUNCTION
+
+router.post('/recipes/:id/delete', async (req, res, next) =>{
+  try {
+    let eliminar = await Recipe.findByIdAndRemove(req.params.id )
+    res.redirect('/recipes')
+  } catch (error) {
+    console.log('Error eliminando la receta, prueba en unos minutos');
+  }
+});
+
+// FIND RECIPE BY ID
+router.get('/recipes/:id', async (req, res, next) =>{
+  let byId = await Recipe.findById(req.params.id)
+  let isCreator = false
+  if (byId.creator == res.locals.currentUserInfo._id){
+    isCreator = true;
+  }
+  else{
+    isCreator = false;
+  }
+  console.log('AWAIT RECIPES ID!!', byId)
+  res.render('showrecipes', {byId, isCreator})
+});
+
+// UPDATE RECIPES FUNCTIONS
+//Método get
+router.get('/recipes/:id/edit', function (req, res, next) {
+  Recipe.findOne({ _id: req.params.id }, (err, theRecipe) => {
+    if (err) {
+      return next(err);
+    }
+    res.render('auth/edit', {findrecipe: theRecipe});
+  });
+});
+
+router.post('/recipes/:id/edit', uploadCloud.single("photo"), function (req, res, next) {
+  const {name, ingredients, instructions, cuisine, diners, typefood, score} = req.body;
+  const image = req.file.url;
+  const imgName = req.file.originalname;
+  Recipe.update({_id: {_id: req.params.id}}, { $set: {name, ingredients, instructions, cuisine, image, diners, typefood, score }})
+  .then((update) => {
+    res.redirect('/recipes');
+  })
+  .catch((error) => {
+    console.log('Error actualizando la receta, prueba en unos minutos', error);
+  })
+});
+
+
 router.get('/recipes/plato/:typefood', async (req, res, next)=>{
   try {
     let plato = req.params.typefood;
@@ -60,80 +110,6 @@ if (req.session.currentUser) {
 } else {
   res.redirect("/login");
 }
-});
-
-
-// UPDATE RECIPES FUNCTIONS
-//Método get
-router.get('/:id/edit', function (req, res, next) {
-  Recipe.findOne({ _id: req.params.id }, (err, theRecipe) => {
-    if (err) {
-      return next(err);
-    }
-    res.render('auth/edit', {findrecipe: theRecipe});
-  });
-});
-
-router.post('/:id/edit', uploadCloud.single("photo"), function (req, res, next) {
-  const {name, ingredients, instructions, cuisine, diners, typefood, score} = req.body;
-  const image = req.file.url;
-  const imgName = req.file.originalname;
-  Recipe.update({_id: {_id: req.params.id}}, { $set: {name, ingredients, instructions, cuisine, image, diners, typefood, score }})
-  .then((update) => {
-    res.redirect('/recipes');
-  })
-  .catch((error) => {
-    console.log('Error actualizando la receta, prueba en unos minutos', error);
-  })
-});
-
-// END UPDATE RECIPES FUNCTIONS////
-
-// SCORE UPDATE FUNCTION
-// router.get("/[nombre-de-ruta-para-puntuar-receta]", function (req, res, next) {
-  // primero cojo input desde el req.body (el puntaje que da el user) => userValue
-  // busco por ID (Recipe.findById) y lo meto en variable (p.e. recipe)
-  
-  // recipeScore = recipe.score
-  // recipeQuantity = recipe.IdScore
-
-  // recipeScore = recipeScore + userValue
-  // recipeQuantity++
-
-  // let AVG = recipeScore / recipeQuantity
-
-  // Recipe.findByIdAndUpdate(userId, { score: recipeScore, IdScore: recipeQuantity }, {new: true})
-  
-  // TODO ESTO ES ASINCRONO !!!! :(
-// });
-
-
-
-// DELETE RECIPES FUNCTION
-
-// router.get('/:id/delete')
-
-router.post('/:id/delete', async (req, res, next) =>{
-  try {
-    let eliminar = await Recipe.findByIdAndRemove(req.params.id )
-    res.redirect('/recipes')
-  } catch (error) {
-    console.log('Error eliminando la receta, prueba en unos minutos');
-  }
-});
-
-// FIND RECIPE BY ID
-router.get('/:id', async (req, res, next) =>{
-  let byId = await Recipe.findById(req.params.id)
-  let isCreator = false
-  if (byId.creator == res.locals.currentUserInfo._id){
-    isCreator = true;
-  }
-  else{
-    isCreator = false;
-  }
-  console.log('AWAIT RECIPES ID!!', byId)
-  res.render('showrecipes', {byId, isCreator})
 });
 
 module.exports = router;
