@@ -26,12 +26,13 @@
         </div>
     </div>
 </div>
-  <div class="div-buttons-details">
-            <button type="button" class="btn btn-primary"><a href="/recipes">Volver</a></button>
-             {{#if isCreator}}
-             <button type="button" class="btn btn-warning"><a href="{{byId._id}}/edit">Actualizar</a></button> 
-                <form action="{{byId._id}}/delete" method="POST">
-                    <button class="btn btn-danger">Eliminar</button>
-                </form>
-             {{/if}}
-        </div>
+
+<div class="div-buttons-details">
+    <button type="button" class="btn btn-primary"><a href="/recipes">Volver</a></button>
+    {{#if isCreator}}
+    <button type="button" class="btn btn-warning"><a href="{{byId._id}}/edit">Actualizar</a></button> 
+    <form action="{{byId._id}}/delete" method="POST">
+        <button class="btn btn-danger">Eliminar</button>
+    </form>
+    {{/if}}
+</div>
