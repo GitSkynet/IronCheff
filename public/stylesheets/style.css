@@ -675,10 +675,6 @@ body {
   color: white;
 }
 
-.create-recipe label {
-  margin: 5px;
-  font-family: arial;
-}
 
 .create-recipe select {
   margin: 5px;
@@ -698,18 +694,8 @@ body {
   font-family: arial;
 }
 
-.create-recipe button {
-  background-color: aquamarine;
-  border: 1px solid aquamarine;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 10px;
-  text-decoration: none;
-}
 
-.create-recipe button a  {
-  text-decoration: none;
-}
+
 
 .create-recipe .img-button {
   width: 100px;
@@ -733,7 +719,7 @@ body {
 
   .create-recipe {
     width: 100%;
-    height: 745px;
+    height: 780px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -777,14 +763,7 @@ body {
     border-radius: 10px;
   }
   
-  .create-recipe button {
-    background-color: aquamarine;
-    border: 1px solid aquamarine;
-    padding: 5px 10px;
-    margin: 10px;
-    border-radius: 10px;
-    
-  }
+
 
   .create-recipe button a  {
     text-decoration: none;
@@ -940,12 +919,6 @@ margin: 5px;
 .new-recipes-dashboard{
   color: black;
   width: 100%;
-<<<<<<< HEAD
-  height: 150px;
-  text-align: center;
-
-
-=======
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -953,7 +926,6 @@ margin: 5px;
   justify-content: flex-start; 
   align-items: center; 
   align-content: flex-start; 
->>>>>>> 155b51bf6de5313009bc51d65bc516a5db4bd55f
 }
 
 .new-recipes-dashboard p {
@@ -976,41 +948,6 @@ margin: 5px;
 }
 
 .create-dashboard{
-<<<<<<< HEAD
-  padding: 10px;
-  margin-top: 15px;
-  width: 100%;
-  height: 300px;
-  text-align: center;
-  }
-
-.text-dashboard{
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.dashboard-button{
-  height: 30%;
-  width: 30%;
-  padding: 1.5em auto;
-  margin: 1em auto;
-  background-color: #576bd8;
-  border: none;
-  border-radius: 3px;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
-  transition: all 0.2s cubic-bezier(.4,0,.2,1);
-}
-
-.dashboard-button a{
-  text-decoration: none;
-  color: white;
-}
-
-.dashboard-button:hover{
-  letter-spacing: 0.8em;
-  background-color: #F08C99;
-=======
   color: black;
     margin-top: 15px;
     min-width: 360px;
@@ -1035,7 +972,6 @@ margin: 5px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
->>>>>>> 155b51bf6de5313009bc51d65bc516a5db4bd55f
 }
 
 @media(min-width: 600px){
