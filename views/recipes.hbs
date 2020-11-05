@@ -13,15 +13,16 @@
 {{#if receta}}
 {{#each receta}}
 <div class="div-recetas">
-    <img src="{{this.image}}" alt="">
-    <div class="div-recetas2">
-        <h3>{{this.name}}</h3>
-        <h4>Tipo de cocina: {{this.cuisine}}</h4>
-        <h4>Comensales: {{this.diners}}</h4>
-        <h4>Creador: {{this.creator.name}}</h4>
-        <h4>Tipo plato: {{this.typefood}}</h4>
-        <button type="button" class="btn btn-primary"><a href="/recipes/{{this._id}}">Detalles</a></button>
+  <div class="cardrecipe">
+    <div class="card__body">
+      <img src="{{this.image}}" alt="" class="card__image">
+      <h2 class="card__title">{{this.name}}</h2>
+      <p class="card__description">Creador: {{this.creator.name}}</p>
+      <p class="card__description"> Cocina: {{this.cuisine}}</p>
+      <p class="card__description"> Tipo de plato: {{this.typefood}}</p>
     </div>
+    <button class="card__btn"><a href="/recipes/{{this._id}}">Detalles</a></button>
+  </div>
 </div>
 {{/each}}
 
@@ -37,7 +38,7 @@
         <h4>Comensales: {{this.diners}}</h4>
         <h4>Creador: {{this.creator.name}}</h4>
         <h4>Tipo plato: {{this.typefood}}</h4>
-        <button type="button" class="btn btn-primary"><a href="/recipes/{{this._id}}">Detalles</a></button>
+        <button type="button" class="card__btn"><a href="/recipes/{{this._id}}">Detalles</a></button>
     </div>
 </div>
     {{/each}}

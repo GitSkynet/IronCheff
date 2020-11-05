@@ -1,16 +1,22 @@
-<h1>EDIT PROFILE PAGE</h1>
 
 <section class="profile-edit">
     <div>
-        <h2>Nombre: {{userProfile.name}}</h2>
+        <h1>Edita tu perfil</h1>
+        <h2>Nombre: <br>{{userProfile.name}}</h2>
         <img src={{userProfile.image}} alt="">
+        <h2>Email: <br>{{userProfile.email}}</h2>
+    </div>
+    <div>
         <form action="editprofile" enctype="multipart/form-data" method = "POST">
-            <label for = "name">Imagen</label>
+            <label for = "name">Cambia tu imagen de perfil</label>
             <input type = "file" name = "photo" id = "image" value="{{ userProfile.image }}">
-            <label for = "name"> Nombre </label>
-            <input type = "text" name = "name" id = "name" value="{{ userProfile.name }}">   
-            <button>Envia</button>
+            <br>
+            <label for = "name">Cambia tu nombre de usuario</label>
+            <input type = "text" name = "name" id = "name" value="{{ userProfile.name }}">
+            <br>   
+            <button class="btn">Envia</button>
+            <br>
+            <button class="btn"><a href="/dashboard">Vuelve a tu Dashboard</a></button>
         </form>
     </div>
-
 </section>
