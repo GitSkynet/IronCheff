@@ -1854,29 +1854,7 @@ aside.context a {
 aside.context a:hover {
   border-bottom: 1px solid;
 }
-/* footer {
-  text-align: center;
-  width: 100%;
-}
-footer a {
-  text-decoration: none;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: transparent;
-  border: 1px dashed #333;
-  color: #333;
-  margin: 0 3px;
-}
-footer a:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
-footer a .icons {
-  margin-top: 8px;
-  display: inline-block;
-  font-size: 14px;
-} */
+
 .main-content {
   display: grid;
   grid-template-areas: "navigation pie-recipe pie-image" "context context pie-image";
