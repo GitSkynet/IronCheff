@@ -1307,17 +1307,6 @@ footer {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
-body {
-  color: #444;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
 .slider {
   height: 600px;
   position: relative;
