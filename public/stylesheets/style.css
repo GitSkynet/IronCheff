@@ -720,7 +720,7 @@ body {
 
   .create-recipe form{
     width: 280px;
-    margin-top: -35px;
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1375,17 +1375,6 @@ footer {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
-body {
-  color: #444;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
 .slider {
   height: 600px;
   position: relative;
@@ -1455,6 +1444,9 @@ body {
           flex-flow: row nowrap;
 }
 .slider__contents {
+  background-image: url('https://s3-us-west-2.amazonaws.com/lasaga-blog/media/images/grupo_imagen.original.jpg');
+  background-position: center;
+  background-size: cover;
   height: 100%;
   padding: 2rem;
   text-align: center;
