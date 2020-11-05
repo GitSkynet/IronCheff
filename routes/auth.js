@@ -95,9 +95,9 @@ router.post('/:id/editprofile', uploadCloud.single("photo"), function (req, res,
   console.log('NAMEEEEEEEEEEEEEEEEEEEEEE', name)
   const image = req.file.url;
   const imgName = req.file.originalname;
-User.findByIdAndUpdate({_id: {_id: req.params.id}}, { $set: {name, image, imgName}})
+User.findByIdAndUpdate( {_id: req.params.id}, { $set: {name, image, imgName}})
   .then((updateUser) => {
-    res.redirect('/editprofile');
+    res.redirect('auth/editprofile');
   })
   .catch((error) => {
     console.log('Error actualizando usuario, prueba en unos minutos', error);
