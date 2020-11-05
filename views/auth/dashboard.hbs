@@ -1,28 +1,23 @@
-<h1>DASHBOARD PAGE</h1>
 
+<section class="background-dashboard">
 <section class="new-recipes-dashboard">
-    <div>
-        <h2>Tu perfil</h2>
-        <p>Bienvenido  {{theUser.name}}</p>
+    <p>Bienvenido  {{theUser.name}}</p>
+    <div>  
         <img src={{theUser.image}} alt="Image Error">
-        <p>Tu puntuación actual es:</p>
-        <a href="{{theUser._id}}/editprofile">Editar Perfil</a>
     </div>
-    <div class="/create-recipe">
-    </div>
-</section>
-
-<section class="dashboard-favourite">
     <div>
-        <h2>Tus recetas favoritas</h2>
-        <p>Crea tus recetas y compartelas con la comunidad! Cuantos más seamos, mejor!</p>
+         <button type="button" class="btn btn-primary"><a href="{{theUser._id}}/editprofile">Editar Perfil</a></button>
+        
     </div>
 </section>
 
 <section class="create-dashboard">
+     <h2>Añade tus recetas!!</h2>
     <div>
-        <h2>Añade tus recetas!!</h2>
         <p>Crea tus recetas y compartelas con la comunidad! Cuantos más seamos, mejor!</p>
-        <button><a href="/createrecipe">Crear...</a></button>
     </div>
+    <div>
+        <button type="button" class="btn btn-primary"><a href="/createrecipe">Crear...</a></button>
+    </div>
+</section>
 </section>
