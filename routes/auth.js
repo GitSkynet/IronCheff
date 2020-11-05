@@ -91,14 +91,19 @@ router.post('/:id/editprofile', uploadCloud.single("photo"), function (req, res,
   console.log('NAMEEEEEEEEEEEEEEEEEEEEEE', name)
   const image = req.file.url;
   const imgName = req.file.originalname;
+  let nombre = req.body.name;
+  console.log('NOPMBRENUEVOOOOOOOOOOOOOOOOOOOOOOOOO', nombre)
+User.findByIdAndUpdate({_id: req.params.id}, { $set: {name, image, imgName}}, {new:true})
+  .then((updateUser) => {
     console.log('consolelooooogggggggg', res.locals.currentUserInfo)
     res.locals.currentUserInfo = updateUser;
     console.log('consolelooooog22222222222222', res.locals.currentUserInfo)
+    res.redirect('/dashboard');
   })
   .catch((error) => {
     console.log('Error actualizando usuario, prueba en unos minutos', error);
   })
-
+})
 
 
 router.get('/createrecipe', uploadCloud.single("photo"), (req, res, next) => {
