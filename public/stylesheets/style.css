@@ -940,12 +940,6 @@ margin: 5px;
 .new-recipes-dashboard{
   color: black;
   width: 100%;
-<<<<<<< HEAD
-  height: 150px;
-  text-align: center;
-
-
-=======
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -953,7 +947,6 @@ margin: 5px;
   justify-content: flex-start; 
   align-items: center; 
   align-content: flex-start; 
->>>>>>> 155b51bf6de5313009bc51d65bc516a5db4bd55f
 }
 
 .new-recipes-dashboard p {
@@ -976,41 +969,6 @@ margin: 5px;
 }
 
 .create-dashboard{
-<<<<<<< HEAD
-  padding: 10px;
-  margin-top: 15px;
-  width: 100%;
-  height: 300px;
-  text-align: center;
-  }
-
-.text-dashboard{
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.dashboard-button{
-  height: 30%;
-  width: 30%;
-  padding: 1.5em auto;
-  margin: 1em auto;
-  background-color: #576bd8;
-  border: none;
-  border-radius: 3px;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
-  transition: all 0.2s cubic-bezier(.4,0,.2,1);
-}
-
-.dashboard-button a{
-  text-decoration: none;
-  color: white;
-}
-
-.dashboard-button:hover{
-  letter-spacing: 0.8em;
-  background-color: #F08C99;
-=======
   color: black;
     margin-top: 15px;
     min-width: 360px;
@@ -1035,7 +993,6 @@ margin: 5px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
->>>>>>> 155b51bf6de5313009bc51d65bc516a5db4bd55f
 }
 
 @media(min-width: 600px){
