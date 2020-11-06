@@ -9,6 +9,8 @@ router.get("/", function (req, res, next) {
   res.render("home");
 });
 
+
+
 /* GET RECIPES PAGE */
 router.get("/recipes", async(req, res, next) => {
   try {
@@ -97,6 +99,9 @@ router.get('/recipes/cuisine/:cuisine', async (req, res, next) =>{
   }
 })
 
+router.get("/aboutus", (req, res, next) => {
+  res.render("aboutus");
+})
 
 router.use((req, res, next) => {
 // if hay un usuario en sesión (si está logged in)

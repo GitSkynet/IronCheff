@@ -1217,6 +1217,7 @@ footer {
 	 transition: transform var(--d) var(--e);
 	 z-index: 1;
 }
+
  .content > * + * {
 	 margin-top: 1rem;
 }
@@ -1867,176 +1868,88 @@ aside.context a:hover {
  }
 
 
-/* ///////////////////////////TEST////////////////// */
 
-.carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__prev > label:nth-child(5), .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__next > label:nth-child(2), .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__prev > label:nth-child(1), .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__next > label:nth-child(3), .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__prev > label:nth-child(2), .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__next > label:nth-child(4), .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__prev > label:nth-child(3), .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__next > label:nth-child(5), .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__prev > label:nth-child(4), .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__next > label:nth-child(1) {
-  opacity: 1 !important;
-  z-index: 3;
+ /* //////////////////////////////////////////////////////////////////// */
+
+ .cards {
+	 position: relative;
+	 display: flex;
+	 align-items: flex-end;
+	 overflow: hidden;
+	 padding: 1rem;
+	 width: 100wh;
+	 text-align: center;
+	 color: whitesmoke;
+	 background-color: whitesmoke;
+	 box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
 }
-*, *:before, *:after {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+ @media (min-width: 600px) {
+	 .cards {
+		 height: 350px;
+	}
 }
-body {
-  background: #fcfcfc;
-  margin: 0;
+ .cards:before {
+	 content: '';
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 110%;
+	 background-size: cover;
+	 background-position: 0 0;
+	 transition: transform calc(var(--d) * 1.5) var(--e);
+	 pointer-events: none;
 }
-.container {
-  width: 100%;
-  margin: 5px auto;
+ .cards:after {
+	 content: '';
+	 display: block;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 200%;
+	 pointer-events: none;
+	 background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.320) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.540) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.790) 100%);
+	 transform: translateY(-50%);
+	 transition: transform calc(var(--d) * 2) var(--e);
 }
-.carousel {
-  width: 100%;
-  height: 400px;
-  position: relative;
-  overflow: hidden;
+ .cards:nth-child(1):before {
+	 background-image: url(https://res.cloudinary.com/dmkhzosvq/image/upload/v1604663565/recipes/cocina-espanola_uprtxa.jpg);
 }
-.carousel > input[type="radio"] {
-  position: absolute;
-  left: 0;
-  opacity: 0;
-  top: 0;
+ .cards:nth-child(2):before {
+	 background-image: url(https://res.cloudinary.com/dmkhzosvq/image/upload/v1604663423/recipes/cremacatalana_wzshll.jpg);
 }
-.carousel > input[type="radio"]:checked ~ .carousel__items .carousel__item, .carousel > input[type="radio"]:checked ~ .carousel__prev > label, .carousel > input[type="radio"]:checked ~ .carousel__next > label {
-  opacity: 0;
+ .cards:nth-child(3):before {
+	 background-image: url(https://res.cloudinary.com/dmkhzosvq/image/upload/v1604663347/recipes/cocinaargentina_uqosp5.jpg);
 }
-.carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__items .carousel__item:nth-child(1) {
-  opacity: 1;
-}
-.carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__nav > label:nth-child(1) {
-  background: #ccc;
-  cursor: default;
-  pointer-events: none;
-}
-.carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__items .carousel__item:nth-child(2) {
-  opacity: 1;
-}
-.carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__nav > label:nth-child(2) {
-  background: #ccc;
-  cursor: default;
-  pointer-events: none;
-}
-.carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__items .carousel__item:nth-child(3) {
-  opacity: 1;
-}
-.carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__nav > label:nth-child(3) {
-  background: #ccc;
-  cursor: default;
-  pointer-events: none;
-}
-.carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__items .carousel__item:nth-child(4) {
-  opacity: 1;
-}
-.carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__nav > label:nth-child(4) {
-  background: #ccc;
-  cursor: default;
-  pointer-events: none;
-}
-.carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__items .carousel__item:nth-child(5) {
-  opacity: 1;
-}
-.carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__nav > label:nth-child(5) {
-  background: #ccc;
-  cursor: default;
-  pointer-events: none;
-}
-.carousel__items {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  width: 100%;
-  height: 480px;
-  position: relative;
-}
-.carousel__item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: opacity 2s;
-  -webkit-transition: opacity 2s;
-}
-.carousel__item img {
-  width: 100%;
-  height: 100%;
-}
-.carousel__prev > label, .carousel__next > label {
-  border: 1px solid #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  display: block;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  opacity: 0;
-  z-index: 2;
-}
-.carousel__prev > label:hover, .carousel__next > label:hover, .carousel__prev > label:focus, .carousel__next > label:focus {
-  opacity: 0.5 !important;
-}
-.carousel__prev > label:before, .carousel__next > label:before, .carousel__prev > label:after, .carousel__next > label:after {
-  content: "";
-  position: absolute;
-  width: inherit;
-  height: inherit;
-}
-.carousel__prev > label:before, .carousel__next > label:before {
-  background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
-  width: 60%;
-  height: 60%;
-  top: 20%;
-}
-.carousel__prev > label {
-  left: 2%;
-}
-.carousel__prev > label:before {
-  left: 35%;
-  top: 20%;
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-.carousel__next > label {
-  right: 2%;
-}
-.carousel__next > label:before {
-  left: 10%;
-  transform: rotate(315deg);
-  -webkit-transform: rotate(315deg);
-}
-.carousel__nav {
-  position: absolute;
-  bottom: 3%;
-  left: 0;
-  text-align: center;
-  width: 100%;
-  z-index: 3;
-}
-.carousel__nav > label {
-  border: 1px solid #fff;
-  display: inline-block;
-  border-radius: 50%;
-  cursor: pointer;
-  margin: 0 0.125%;
-  width: 20px;
-  height: 20px;
+ .cards:nth-child(4):before {
+	 background-image: url(https://res.cloudinary.com/dmkhzosvq/image/upload/v1604663804/recipes/mexicana_unma5r.jpg);
 }
 
-@media(min-width: 600px){
-  .carousel__items {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    width: 100%;
-    height: 600px;
-    position: relative;
-  }
-  
-}
+@media (hover: hover) and (min-width: 600px) {
+	 .cards:after {
+		 transform: translateY(0);
+	}
+
+	 .cards:hover, .cards:focus-within {
+		 align-items: center;
+	}
+	 .cards:hover:before, .cards:focus-within:before {
+		 transform: translateY(-4%);
+	}
+	 .cards:hover:after, .cards:focus-within:after {
+		 transform: translateY(-30%);
+	}
+	 .cards:hover .content, .cards:focus-within .content {
+		 transform: translateY(0);
+	}
+	 .cards:hover .content > *:not(.titles), .cards:focus-within .contents > *:not(.titles) {
+		 opacity: 1;
+		 transform: translateY(0);
+		 transition-delay: calc(var(--d) / 8);
+	}
+	 .cards:focus-within:before, .cards:focus-within:after, .cards:focus-within .content, .cards:focus-within .contents > *:not(.titles) {
+		 transition-duration: 0s;
+	}
+};
+
