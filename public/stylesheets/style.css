@@ -731,9 +731,11 @@ body {
   
   .create-recipe h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 15px;
+    margin-bottom: 5px;
     font-size: 35px;
     color: white;
+    text-align: center;
+
   }
   
   .create-recipe label {
@@ -744,11 +746,11 @@ body {
   }
   
   .create-recipe label {
-    margin: 5px;
+    margin: 3px;
   }
   
   .create-recipe select {
-    margin: 10px;
+    margin: 3px;
   }
 
   .create-recipe input {
