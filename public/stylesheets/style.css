@@ -1458,8 +1458,10 @@ footer {
 }
  #about-main .jumbotron {
 	 width: 100%;
-	 height: 530px;
-	 background: #171b23;
+   height: 530px;
+   background-image: url('https://res.cloudinary.com/dmkhzosvq/image/upload/v1604662740/recipes/cook_v2fipl.jpg');
+  background-size: cover;
+  background-position: center;
 	 margin: 0;
 	 z-index: 3;
 	 border-radius: 0px;
@@ -1519,7 +1521,7 @@ footer {
 }
  #about-main .jumbotron .jumbotron-inner .top-box .content-box p {
 	 text-align: center;
-	 color: #6f7782;
+	 color: black;
 	 font-size: 18px;
 	 font-weight: 500;
 	 margin: 0;
@@ -1527,7 +1529,7 @@ footer {
 }
  @media (max-width: 1401px) {
 	 #about-main .jumbotron {
-		 height: 595px !important;
+		 height: 350px !important;
 	}
 	 #about-main .jumbotron .jumbotron-inner {
 		 max-width: 900px;
