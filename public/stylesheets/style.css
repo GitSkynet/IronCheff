@@ -698,7 +698,7 @@ body {
 
 
 .create-recipe .img-button {
-  width: 100px;
+  width: 100wh;
   height: 30px;
 }
 
@@ -774,7 +774,7 @@ body {
   }
   
   .img-button {
-    width: 150px;
+    width: 100wh;
     color: whitesmoke;
     border-radius: 5px;
   }
