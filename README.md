@@ -12,7 +12,7 @@ Cooking plataform where you can check recipes from other users or make your own 
 
 In this app you will find recipes from many diferent cultures and diferent flavours.
 
-You can also save the recipes to favourites and score them. The one with higher score will be put in the hall of fame !
+You can search them by type of cuisine, type food, ...
 
 
 <br>
@@ -35,10 +35,68 @@ You can also save the recipes to favourites and score them. The one with higher 
 
 
 **Method** | **Route**                    | **Description** 
-    GET         
+    GET          /                            Renders at home page
 
+    GET          /                            Renders the signup page                                        
 
-| **Method** | **Route**                    | **Description**     
+    POST         /                            Body
+                                                - Name
+                                                - Email
+                                                - Password
+                                              Redirect to recipes page once sign up is done
+    
+    GET          /                            Renders the login page
+
+    POST         /                            Body
+                                                - Email
+                                                - Password
+                                                - Redirect to recipes page once sign up is done
+                                              
+    GET          /aboutus                     Renders the about us page
+
+    GET          /recipes                     Renders the recipes page
+
+    POST         /recipes                     User can see recipe details is user is logged in
+
+    GET          /recipes/_id                 Renders the showrecipes page
+
+    GET          /recipes/_id/edit            Renders the edit page
+
+    POST         /recipes/_id/edit            Redirect to recipes page
+                                              Body : 
+                                                - name
+                                                - ingredients
+                                                - instructions
+                                                - cuisine
+                                                - image
+                                                - diners
+                                                - score
+                                                - creator
+                                                - typefood
+
+    GET          /dashboard                   Renders the dashboard page
+
+    POST         /dashboard                   Only users logged in can acces into dashboard
+
+    GET          /dashboard/_id/editprofile   Renders the edit profile page
+
+    POST         /dashboard/_id/editprofile   Users logged can modify : 
+                                                  - name
+                                                  - image
+
+    GET          /createrecipe                Renders the createrecipe page
+
+    POST         /createrecipe                Redirect to recipes webpage
+                                                  - name
+                                                  - ingredients
+                                                  - instructions
+                                                  - cuisine
+                                                  - image
+                                                  - diners
+                                                  - score
+                                                  - creator
+                                                  - typefood
+ 
 
 ## Models
 
@@ -46,10 +104,12 @@ User model
 
 ```javascript
  {
-    name: String,
+     name: {type: String, default: 'Cocinero'},
     email: String,
     password: String,
-    favourites: [{}]
+    image: {type: String, default: 'https://res.cloudinary.com/dmkhzosvq/image/upload/v1604342480/recipes/UserIcon_wsfnk9.png',
+    favourites: [],
+    score: Number,
   },
   {
     timestamps: true
@@ -63,15 +123,16 @@ Recipes model
 ```javascript
 {
   {
-      name: String,
+     name: String,
       ingredients: String,
       instructions: String,
-      cuisine: String,
+      cuisine: {type: String, enum: ["Española", "Japonesa", "Argentina", "Catalana", "Italiana", "Mexicana", "Americana"]},
       image: {type: String, default: 'images.media-allrecipes.com/images/75131.jpg'},
       diners: Number,
       score: Number,
       creator: {type: Schema.Types.ObjectId, ref: 'User'},
-      idScorer: Number
+      idScorer: Number,
+      typefood: {type: String, enum: ["Entrantes", "Primero", "Segundo", "Postre"]},
     });
 
 ```
@@ -93,20 +154,21 @@ Recipes model
 
 ## Backlog
 
-- Incorporate Ingredients model to give extra resources while creating recipe, like ingredient image or category.
-- Conect with product supermarket API and use them to create recipes. Calculate the price of recipe based in the product info from API
+- Add to favourites option.
+- Add score to recipes.
+- Find by top rated recipes.
+- Add hall of fame method by recipes and by user.
 
 <br>
 
 ## Links
 
-### Git
 
 The url to your repository and to your deployed project
 
-[Repository Link](https://github.com/GitSkynet/IronCheff)
+[Repository Link on GitHub](https://github.com/GitSkynet/IronCheff)
 
-[Deploy Link]()
+[Deploy Link on Heroku ](https://ironcheff.herokuapp.com/)
 
 <br>
 
