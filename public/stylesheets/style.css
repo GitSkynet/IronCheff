@@ -12,6 +12,8 @@
 }
 
 .btn {
+  text-decoration: none;
+  color: white;
   margin: 10px;
   display: inline-block;
   font-weight: 400;
@@ -656,7 +658,7 @@ body {
 /* STYLE CARD RECIPES PAGE */
 /* color variables */
 :root {
-  --clr-primary: #d50000;
+  --clr-primary: #29e6a7;
   --clr-primary-hover: #29e6a7;
   --clr-primary-dark: #039d69;
   --clr-gray100: #f0f7f8;
@@ -705,17 +707,21 @@ body {
   color: var(--clr-primary);
   border-radius: var(--radius);
   transition: background 200ms ease-in, color 200ms ease-in;
+  text-decoration: none;
+  color: white;
 }
 
 .card__btn a{
   padding: 10px 110px;
+  text-decoration: none;
+  color: white;
 }
 
 .cardrecipe:hover {
   transform: scale(1.02);
 }
 .cardrecipe:hover .card__btn {
-  background: var(--clr-primary);
+  background-color: lightseagreen;
   color: white;
 }
 
@@ -1856,7 +1862,7 @@ aside.context a:hover {
  .pie-image img{
   height: 300px;
   width: 100wh;
-}
+  }
   .pie-recipe {
     padding: 25px;
   }
