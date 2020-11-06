@@ -83,25 +83,20 @@ router.get('/recipes/plato/:typefood', async (req, res, next)=>{
   }
 })
 
-router.get('/recipes/:cuisine', async (req, res, next) =>{
+router.get('/recipes/cuisine/:cuisine', async (req, res, next) =>{
   try {
     let cuisine = req.params.cuisine;
     let receta = await Recipe.find({cuisine: cuisine})
     console.log('consolelog de COCINAAAAAAA', receta)
-    res.render("recipes", {receta})
     if(receta.length == 0){
       res.render('recipes', {errorMessage: 'No hay recetas aún, añade algunas para completar!!'})
     }
+    res.render("recipes", {receta})
   } catch (error) {
     console.log('Error entrando a la categoría, prueba en unos instantes', error)
   }
 })
 
-
-// HALL OF FAME ROUTE
-router.get("/aboutus", (req, res, next) => {
-  res.render("aboutus");
-});
 
 router.use((req, res, next) => {
 // if hay un usuario en sesión (si está logged in)
